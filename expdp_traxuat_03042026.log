@@ -1,0 +1,1421 @@
+;;; 
+Export: Release 19.0.0.0.0 - Production on Wed Mar 4 01:33:15 2026
+Version 19.22.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+;;; **************************************************************************
+;;; Parfile values:
+;;;  parfile:  exclude=TABLE:"LIKE 'BIN$%'",TABLE:"LIKE 'DR$%'",
+;;;  _parfile: TABLE:"LIKE 'MLOG$%'",TABLE_DATA:"='AC_ACTUAL_FLIGHTS_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='AC_ACTUAL_FLIGHTS_AUDIT_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_ACTUAL_FLIGHTS_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_ACTUAL_FLIGHTS_VIEW'",
+;;;  _parfile: TABLE_DATA:"='AC_CONTROLLER_PANEL_AC'",
+;;;  _parfile: TABLE_DATA:"='AC_CONTROLLER_PANEL_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='AC_CONTROLLER_PANEL_HEADER'",
+;;;  _parfile: TABLE_DATA:"='AC_FLIGHTS_ECM'",
+;;;  _parfile: TABLE_DATA:"='AC_FLIGHT_CLOSING_PNRMVTUP'",
+;;;  _parfile: TABLE_DATA:"='AC_FLIGHT_MONTHLY_ENGINE'",
+;;;  _parfile: TABLE_DATA:"='AC_MASTER_AUDIT'",TABLE_DATA:"='AC_MASTER_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_PN_TRANSACTION_HISTORY_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_SCHEDULE_FLIGHT_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_UNIT_TYPE_TRANSACTION'",
+;;;  _parfile: TABLE_DATA:"='AC_UNIT_TYPE_TRANSACTION_HD'",
+;;;  _parfile: TABLE_DATA:"='AC_WEIGHT_HISTORY_HD'",
+;;;  _parfile: TABLE_DATA:"='AUD_ORDER_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='AUD_ORDER_HEADER'",
+;;;  _parfile: TABLE_DATA:"='AUD_ORDER_INVOICE'",
+;;;  _parfile: TABLE_DATA:"='AUD_PN_INVENTORY_HISTORY'",
+;;;  _parfile: TABLE_DATA:"='BLOB_ANNOTATION'",TABLE_DATA:"='BLOB_TABLE'",
+;;;  _parfile: TABLE_DATA:"='CONVERSION_EXCEPTIONS'",
+;;;  _parfile: TABLE_DATA:"='CONV_AC_ACTUAL_FLIGHTS'",
+;;;  _parfile: TABLE_DATA:"='CONV_PN_ACCUMULATED_TIMES'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_AUDIT_HD'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_FAULT_HD'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_HD'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_PN'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_PN_HD'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_TROUBLE_SHOOTING'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_TROUBLE_SHOOT_HD'",
+;;;  _parfile: TABLE_DATA:"='DEFECT_REPORT_TROUBLE_SH_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='DOCUMENT_CONTROL'",
+;;;  _parfile: TABLE_DATA:"='DOCUMENT_CONTROL_BACKUP_JAN07'",
+;;;  _parfile: TABLE_DATA:"='DOC_CTRL_12052018'",
+;;;  _parfile: TABLE_DATA:"='DOC_FINAL_BKP_1205'",
+;;;  _parfile: TABLE_DATA:"='EMAIL_ATTACHMENTS'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_AFFECTED_MAN_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_COMPLIANCE'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_CONTENT_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_CONTROL_RANGE_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_CONTROL_RAN_W_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_CONTROL_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_CTL_POSITION_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_DOCUMENT_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_EFFECTIVITY_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_EFFECTIVITY_BKP'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_EFFECTIVITY_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_PN_EFF_CTL_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_SCHEDULE_OVR_RV'",
+;;;  _parfile: TABLE_DATA:"='ENGINEERING_TASK_CARD_CTL_RV'",
+;;;  _parfile: TABLE_DATA:"='EXTERNAL_INVOICE_MESSAGE'",
+;;;  _parfile: TABLE_DATA:"='FLIGHT_SCHEDULE'",
+;;;  _parfile: TABLE_DATA:"='GROUND_EVENT_REQUEST'",
+;;;  _parfile: TABLE_DATA:"='IFACE_AC_RESTRICTION_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_AEX_IN_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_DEFECT_GMM_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_DEFECT_QUEUE_TABLE'",
+;;;  _parfile: TABLE_DATA:"='IFACE_EOS_IN_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_EOS_OUT_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_ROS_IN_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_ROS_OUT_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_SCHED_FLIGHT_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_SPEC2K_IN_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_SPEC2K_OUT_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_XOS_IN_QT'",
+;;;  _parfile: TABLE_DATA:"='IFACE_XOS_OUT_QT'",
+;;;  _parfile: TABLE_DATA:"='INTERFACE_AUDIT'",TABLE_DATA:"='INTERFACE_DATA'",
+;;;  _parfile: TABLE_DATA:"='INTERFACE_DATA_EXCEPTIONS'",
+;;;  _parfile: TABLE_DATA:"='INTERFACE_TRACING'",
+;;;  _parfile: TABLE_DATA:"='INVENTORY_COSTING'",
+;;;  _parfile: TABLE_DATA:"='IPC_IMPORT_RANGES'",
+;;;  _parfile: TABLE_DATA:"='I_INV_HIST_REQ'",
+;;;  _parfile: TABLE_DATA:"='JETS_FLYDOCS_AD_SB'",
+;;;  _parfile: TABLE_DATA:"='JETS_TRACE_ENGINRNG_EFFCTVTY'",
+;;;  _parfile: TABLE_DATA:"='JOURNAL_ENTRIES_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='LHT_MATERIALS_MESSAGE'",
+;;;  _parfile: TABLE_DATA:"='LOG420389_BACKUP'",TABLE_DATA:"='NOTE_PAD'",
+;;;  _parfile: TABLE_DATA:"='NOTE_PAD_MESSAGE'",
+;;;  _parfile: TABLE_DATA:"='ORDER_AUTHORIZATION_UPD'",
+;;;  _parfile: TABLE_DATA:"='ORDER_CONTROL'",TABLE_DATA:"='ORDER_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='ORDER_DETAIL_AUDIT'",TABLE_DATA:"='ORDER_HEADER'",
+;;;  _parfile: TABLE_DATA:"='ORDER_HEADER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='ORDER_INVOICE'",
+;;;  _parfile: TABLE_DATA:"='ORDER_INVOICE_HEADER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='ORDER_INVOICE_TRANSFER'",
+;;;  _parfile: TABLE_DATA:"='PACKING_SHIPPING_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='PACKING_SHIPPING_DOCS'",
+;;;  _parfile: TABLE_DATA:"='PACKING_SHIPPING_HEADER'",
+;;;  _parfile: TABLE_DATA:"='PACK_PRINT'",TABLE_DATA:"='PBCATCOL'",
+;;;  _parfile: TABLE_DATA:"='PBCATEDT'",TABLE_DATA:"='PBCATFMT'",
+;;;  _parfile: TABLE_DATA:"='PBCATTBL'",TABLE_DATA:"='PICKLIST_DISTRIBUTION'",
+;;;  _parfile: TABLE_DATA:"='PICKLIST_DISTRIBUTION_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PICKLIST_HEADER'",
+;;;  _parfile: TABLE_DATA:"='PICKLIST_HEADER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PICKLIST_HEADER_NOV302016'",
+;;;  _parfile: TABLE_DATA:"='PLANNING'",TABLE_DATA:"='PLANNING_B_4'",
+;;;  _parfile: TABLE_DATA:"='PLANNING_PARAMETER'",TABLE_DATA:"='PLANNING_PN'",
+;;;  _parfile: TABLE_DATA:"='PLAN_TABLE'",
+;;;  _parfile: TABLE_DATA:"='PN_AVERAGE_COST_MOVEMENT'",
+;;;  _parfile: TABLE_DATA:"='PN_CONTROL_AUTHORIZATION_UPD'",
+;;;  _parfile: TABLE_DATA:"='PN_EFFECTIVITY_DISTRIBUTION_HD'",
+;;;  _parfile: TABLE_DATA:"='PN_EFFECTIVITY_DISTR_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PN_EFFECTIVITY_TEMP'",
+;;;  _parfile: TABLE_DATA:"='PN_FINANCIAL_CLOSING'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_CONTROL_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_CONTROL_BKP'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_CTRL_ACTIVE_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_DETAIL_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_DETAIL_BKP'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_DETAIL_HD'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_HISTORY'",
+;;;  _parfile: TABLE_DATA:"='PN_INVENTORY_HISTORY_BKP'",
+;;;  _parfile: TABLE_DATA:"='PN_MASTER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='PN_POSITION_DISTRIBUTION_HD'",
+;;;  _parfile: TABLE_DATA:"='PN_RECEIVING_CHECK_LIST_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='PRINTING_JOBS'",TABLE_DATA:"='PRINTING_JOBS_QT'",
+;;;  _parfile: TABLE_DATA:"='RELATION_MASTER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='REQUISITION_DETAIL_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='REQUISITION_HEADER_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='SECURITY_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='SECURITY_DETAIL_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='SECURITY_DETAIL_B'",
+;;;  _parfile: TABLE_DATA:"='SPEC2000_RELATIONS'",
+;;;  _parfile: TABLE_DATA:"='STYLESHEET_CONTENT'",
+;;;  _parfile: TABLE_DATA:"='SVG_READY_QUEUE_TABLE'",
+;;;  _parfile: TABLE_DATA:"='SVG_REQUEST_QUEUE_TABLE'",
+;;;  _parfile: TABLE_DATA:"='SYSTEM_TRAX_QUICK_PRINT'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_CONTROL_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_EFFECTIVITY_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_EXECUTION_RV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM_DISTRI_EF_RV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM_FORM'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM_HEAD_EF_RV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM_RANGE_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_ITEM_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_RANGE_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_TRAXDOC_REF_REV'",
+;;;  _parfile: TABLE_DATA:"='TASK_CARD_WEIGHT_BALANCE_REV'",
+;;;  _parfile: TABLE_DATA:"='TEMP_ENGINEERING_EFFECTIVITY'",
+;;;  _parfile: TABLE_DATA:"='TLOG'",TABLE_DATA:"='TRACE_ENGINEERING_ORDER'",
+;;;  _parfile: TABLE_DATA:"='TRACE_MASTER'",
+;;;  _parfile: TABLE_DATA:"='TRACE_PN_INVENTORY_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='TRACE_WO_TASK_CARD'",
+;;;  _parfile: TABLE_DATA:"='TRAXDOC_DETAIL'",
+;;;  _parfile: TABLE_DATA:"='TRAXDOC_EXCEPTIONS'",
+;;;  _parfile: TABLE_DATA:"='TRAXDOC_XML_DOCUMENT'",
+;;;  _parfile: TABLE_DATA:"='TRAX_APPLICATION_EXCEPTIONS'",
+;;;  _parfile: TABLE_DATA:"='TRAX_SCHEMA_CHANGES'",TABLE_DATA:"='WO'",
+;;;  _parfile: TABLE_DATA:"='WO_ACTUALS'",TABLE_DATA:"='WO_AUDIT'",
+;;;  _parfile: TABLE_DATA:"='WO_EC_TRANSACTION'",
+;;;  _parfile: TABLE_DATA:"='WO_ENGINEERING_ORDER'",
+;;;  _parfile: TABLE_DATA:"='WO_ENGINEERING_ORDER_ADUIT'",
+;;;  _parfile: TABLE_DATA:"='WO_ITEMS_PUBLISH'",TABLE_DATA:"='WO_PUBLISH'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD'",TABLE_DATA:"='WO_TASK_CARD_ADUIT'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_CONTROL'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_CONTROL_EO'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_DOC_PRINTING'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_ITEM'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_ITEM_ADUIT'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_ITEM_EMP_STAMP'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_PN'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_SURVEY'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_TRAXDOC_REF'",
+;;;  _parfile: TABLE_DATA:"='WO_TASK_CARD_WRK_ACMPLSHD'",
+;;;  _parfile: TABLE_DATA:"='WO_TC_ITM_WO_TSK_CRD_NEW'",
+;;;  _parfile: TABLE_DATA:"='WO_TSK_CRD_PN_WO_TSK_CRD'",
+;;;  _parfile: TABLE_DATA:"LIKE '%ADUIT%'",TABLE_DATA:"LIKE '%AUDIT%'",
+;;;  _parfile: TABLE_DATA:"LIKE 'WO%'"
+;;;  parfile:  flashback_time=SYSTIMESTAMP
+;;;  parfile:  filesize=2G
+;;;  parfile:  content=ALL
+;;;  parfile:  job_name=ODB_SCHEMA_EXP_03042026
+;;;  parfile:  cluster=N
+;;;  parfile:  compression=ALL
+;;;  parfile:  schemas=ODB
+;;;  parfile:  logfile=expdp_traxuat_03042026.log
+;;;  parfile:  dumpfile=expdp_traxuat_03042026_%U.dmp
+;;;  parfile:  directory=MIGDIR
+;;; **************************************************************************
+FLASHBACK automatically enabled to preserve database integrity.
+Starting "SYS"."ODB_SCHEMA_EXP_03042026":  "/******** AS SYSDBA" parfile=/u99/dmps/migdir/expdp_odb_source_traxuat_03042026.par 
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+Processing object type SCHEMA_EXPORT/PACKAGE/PACKAGE_BODY
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/FUNCTIONAL_INDEX/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
+Processing object type SCHEMA_EXPORT/USER
+Processing object type SCHEMA_EXPORT/SYSTEM_GRANT
+Processing object type SCHEMA_EXPORT/ROLE_GRANT
+Processing object type SCHEMA_EXPORT/DEFAULT_ROLE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/DB_LINK
+Processing object type SCHEMA_EXPORT/TYPE/TYPE_SPEC
+Processing object type SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processing object type SCHEMA_EXPORT/SEQUENCE/GRANT/OWNER_GRANT/OBJECT_GRANT
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/GRANT/OWNER_GRANT/OBJECT_GRANT
+Processing object type SCHEMA_EXPORT/TABLE/COMMENT
+Processing object type SCHEMA_EXPORT/PACKAGE/PACKAGE_SPEC
+Processing object type SCHEMA_EXPORT/PACKAGE/GRANT/OWNER_GRANT/OBJECT_GRANT
+Processing object type SCHEMA_EXPORT/FUNCTION/FUNCTION
+Processing object type SCHEMA_EXPORT/PROCEDURE/PROCEDURE
+Processing object type SCHEMA_EXPORT/PACKAGE/COMPILE_PACKAGE/PACKAGE_SPEC/ALTER_PACKAGE_SPEC
+Processing object type SCHEMA_EXPORT/FUNCTION/ALTER_FUNCTION
+Processing object type SCHEMA_EXPORT/PROCEDURE/ALTER_PROCEDURE
+Processing object type SCHEMA_EXPORT/VIEW/VIEW
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/FUNCTIONAL_INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/TRIGGER
+Processing object type SCHEMA_EXPORT/TABLE/POST_TABLE_ACTION
+Processing object type SCHEMA_EXPORT/MATERIALIZED_VIEW
+Processing object type SCHEMA_EXPORT/TABLE/MATERIALIZED_VIEW_LOG
+Processing object type SCHEMA_EXPORT/JOB
+Processing object type SCHEMA_EXPORT/TABLE/POST_INSTANCE/PROCACT_INSTANCE
+Processing object type SCHEMA_EXPORT/TABLE/POST_INSTANCE/PROCDEPOBJ
+Processing object type SCHEMA_EXPORT/POST_SCHEMA/PROCOBJ
+Processing object type SCHEMA_EXPORT/POST_SCHEMA/PROCACT_SCHEMA
+. . exported "ODB"."AC_PN_TRANSACTION_HISTORY"           46.04 MB 1110504 rows
+. . exported "ODB"."AC_ACTUAL_FLIGHTS"                   51.89 MB 1089094 rows
+. . exported "ODB"."PN_EFFECTIVITY_DISTRIBUTION"         9.964 MB 4528597 rows
+. . exported "ODB"."AC_PN_TRANSACTION_CONTROL"           29.27 MB 2061183 rows
+. . exported "ODB"."ENGINEERING_EFFECTIVITY"             13.68 MB  531998 rows
+. . exported "ODB"."TRAXDOC_IMPORT_DETAIL"               21.04 MB  806338 rows
+. . exported "ODB"."PN_TIME_ADJUSTMENT"                  21.78 MB 2456302 rows
+. . exported "ODB"."TASK_CARD_ITEM_DISTRI_EFF"           5.115 MB 2258925 rows
+. . exported "ODB"."PN_MASTER"                           16.61 MB  295409 rows
+. . exported "ODB"."PN_INVENTORY_DETAIL"                 18.27 MB  287584 rows
+. . exported "ODB"."FLIGHT_SCHEDULE_17_SEP_2019"         16.25 MB  589492 rows
+. . exported "ODB"."ORDER_AWB"                           20.59 MB  614834 rows
+. . exported "ODB"."PN_INVENTORY_CONTROL"                9.987 MB  655976 rows
+. . exported "ODB"."PN_INVENTORY_TIMES_ACCRUAL"          7.345 MB 1212857 rows
+. . exported "ODB"."PN_INVENTORY_PHYSICAL"               10.50 MB  548703 rows
+. . exported "ODB"."TMP_CNV_PN_ENG_EFFECTIVITY_GO_LIVE"  5.998 MB  267419 rows
+. . exported "ODB"."INTERFACE_DATA_ORDER"                72.85 MB  133529 rows
+. . exported "ODB"."REQUISITION_DETAIL"                  20.39 MB  410265 rows
+. . exported "ODB"."PN_INVENTORY_EXPIRY"                 14.95 MB  510701 rows
+. . exported "ODB"."TMP_CNV_PN_INVENTORY_CONTROL_GO_LIVE"  5.755 MB  405899 rows
+. . exported "ODB"."REQUISITION_HEADER"                  8.542 MB  376782 rows
+. . exported "ODB"."PN_INTERCHANGEABLE"                  6.419 MB  355584 rows
+. . exported "ODB"."TRAXDOC_PN_XREF"                     9.996 MB  455787 rows
+. . exported "ODB"."PN_INVENTORY_WARRANTY"               10.58 MB  374036 rows
+. . exported "ODB"."PN_VENDOR_PRICE"                     6.230 MB  357476 rows
+. . exported "ODB"."ORDER_INVOICE_HEADER"                9.403 MB  262679 rows
+. . exported "ODB"."PN_MASTER_BKUP_20180501"             7.288 MB  138869 rows
+. . exported "ODB"."PN_MASTER_BACKUP_20180425"           7.253 MB  138852 rows
+. . exported "ODB"."TEMP_SEC_DETAIL_0207"                5.840 MB  576810 rows
+. . exported "ODB"."DOCUMENT_CONTROL_BACKUP"             3.411 MB  246588 rows
+. . exported "ODB"."VENDOR_PERFORMANCE"                  5.769 MB  599168 rows
+. . exported "ODB"."RELIABILITY"                         3.545 MB  125826 rows
+. . exported "ODB"."PN_TEAR_DOWN_REPORT"                 9.708 MB  157136 rows
+. . exported "ODB"."TMP_CNV_HA_GRB_339373"               5.050 MB  153499 rows
+. . exported "ODB"."TEMP_DOC_CONTROL_0207"               3.236 MB  246588 rows
+. . exported "ODB"."PN_INTER_BACKUP_20180425"            3.837 MB  238837 rows
+. . exported "ODB"."TMP_CNV_HA_EC_EFFECTIVITY"           1.867 MB  129850 rows
+. . exported "ODB"."IFACE_INST_UNITS_DETAIL"             6.453 MB  562046 rows
+. . exported "ODB"."TASK_CARD_EFFECTIVITY"               2.061 MB  523738 rows
+. . exported "ODB"."CONV_PN_ACCM_CONTROL_ACTUALS"        5.123 MB  478782 rows
+. . exported "ODB"."TASK_CARD_PN_REV"                    2.752 MB  229407 rows
+. . exported "ODB"."ENGINEERING_COMPLIANCE_HD"           3.461 MB  145056 rows
+. . exported "ODB"."WINDOW_PRINTING_JOBS"                4.035 MB   40815 rows
+. . exported "ODB"."SYSTEM_FORMAT_CONTROL"               4.117 MB  427307 rows
+. . exported "ODB"."ENGINEERING_ORDER"                   5.780 MB   45807 rows
+. . exported "ODB"."TASK_CARD_TRAXDOC_REFERENCES"        4.696 MB  107519 rows
+. . exported "ODB"."SECURITY_WALL"                       2.023 MB  254468 rows
+. . exported "ODB"."TMP_CNV_HA_OIL_CONSUMPTION"          1.905 MB  299737 rows
+. . exported "ODB"."EMPLOYEE_ATTENDANCE_LOG"             4.885 MB  215814 rows
+. . exported "ODB"."TRAINING_EMPLOYEE"                   2.537 MB  171595 rows
+. . exported "ODB"."ORDER_RECEIVING_DISCREPANCY_AU"      7.941 MB   50124 rows
+. . exported "ODB"."PN_CONTROL"                          1.626 MB   88725 rows
+. . exported "ODB"."INTERFACE_MESSAGE_HEADER"            3.334 MB  118938 rows
+. . exported "ODB"."CMP3$122958"                         1.561 MB  294156 rows
+. . exported "ODB"."REQUISITION_DETAIL_CANCEL"           5.414 MB  121581 rows
+. . exported "ODB"."PN_EFFECTIVITY_DISTR_GSE"            821.6 KB  378095 rows
+. . exported "ODB"."TERMS_CONDITIONS_ORDER"              1.829 MB  140635 rows
+. . exported "ODB"."TASK_CARD_EFFECTIVITY_REV_HD"        1.981 MB  287022 rows
+. . exported "ODB"."PN_AUTHORIZATION_UPD"                3.644 MB  150872 rows
+. . exported "ODB"."TASK_CARD"                           316.3 MB   38464 rows
+. . exported "ODB"."TMP_CNV_HA_EC_CONTENT"               4.790 MB  129850 rows
+. . exported "ODB"."EMPLOYEE_ASSIGNMENT_LOG"             1.332 MB   77924 rows
+. . exported "ODB"."PN_EFFECTIVITY_HEADER"               1.789 MB  278030 rows
+. . exported "ODB"."PN_POSITION_DISTRIBUTION"            936.9 KB  182119 rows
+. . exported "ODB"."AC_PN_TRNS_HIST_TRNS_STRUCT"         2.498 MB   93127 rows
+. . exported "ODB"."ENGINEERING_REVISION_CONTROL"        2.169 MB  138827 rows
+. . exported "ODB"."TASK_CARD_RESEQUENCING_REV"          1.248 MB  233961 rows
+. . exported "ODB"."TASK_CARD_CONTROL"                   1.723 MB  132067 rows
+. . exported "ODB"."INTERFACE_ORDER"                     2.919 MB   39675 rows
+. . exported "ODB"."ENGINEERING_EFFECTIVITY_HD"          1.687 MB   53024 rows
+. . exported "ODB"."TASK_CARD_AUTHORIZATION_UPD"         1.474 MB  103811 rows
+. . exported "ODB"."PN_MANUAL_CONTROL"                   1.701 MB  120175 rows
+. . exported "ODB"."PN_INVENTORY_LEVEL"                  1.723 MB  124617 rows
+. . exported "ODB"."ENGINEERING_CONTENT"                 3.186 MB   65236 rows
+. . exported "ODB"."PN_INVENTORY_PHY_CYCLE"              1.799 MB  142358 rows
+. . exported "ODB"."TASK_CARD_ITEM_RANGE"                666.2 KB  132105 rows
+. . exported "ODB"."ENGINEERING_ORDER_RV"                2.158 MB   15252 rows
+. . exported "ODB"."TASK_CARD_PN"                        1.232 MB   77578 rows
+. . exported "ODB"."TMP_CNV_HA_EC_RESET"                 1.332 MB  117718 rows
+. . exported "ODB"."PN_INVENTORY_DETAIL_TEMPLATE"        1.249 MB   61983 rows
+. . exported "ODB"."DEFECT_MEL_EFFECTIVITY"              415.8 KB  123175 rows
+. . exported "ODB"."TEMP_SEC_WALL_0207"                  717.2 KB   87385 rows
+. . exported "ODB"."ORDER_RECEIVING_DISCREPANCY"         3.469 MB   19228 rows
+. . exported "ODB"."PN_INVENTORY_PHYSICAL_HEADER"        1.741 MB  112686 rows
+. . exported "ODB"."RELATION_MASTER"                     2.069 MB   21926 rows
+. . exported "ODB"."ENGINEERING_DOCUMENT"                1.023 MB   82806 rows
+. . exported "ODB"."SYSTEM_TRAN_CODE"                    805.3 KB   24199 rows
+. . exported "ODB"."AC_PN_TRANSACTION_HIST_TRACK"        1.582 MB  237173 rows
+. . exported "ODB"."TMP_CNV_HA_DEFECT_REPORT"            1.400 MB    2814 rows
+. . exported "ODB"."TASK_CARD_ITEM_HEAD_EFF"             393.4 KB  101584 rows
+. . exported "ODB"."TRAXDOC_IMPORT_EXCEL_REPORT"         1022. KB   55465 rows
+. . exported "ODB"."DEFECT_MEL_EFFECTIVITY_REV"          285.7 KB   89423 rows
+. . exported "ODB"."FORM_TRACKING"                       1.230 MB   47306 rows
+. . exported "ODB"."ENGINEERING_AUTHORIZATION_UPD"       954.0 KB   43497 rows
+. . exported "ODB"."ENGINEERING_CONTROL"                 597.7 KB   43997 rows
+. . exported "ODB"."TASK_CARD_EFFECTIVITY_HEAD_RV"       634.6 KB   74519 rows
+. . exported "ODB"."SECURITY_PASSWORD_HISTORY"           2.012 MB   66793 rows
+. . exported "ODB"."INTERFACE_ORDER_SHIPNOTICE"          1.308 MB   20480 rows
+. . exported "ODB"."FIXED_ASSET_REGISTRY"                1.093 MB   26076 rows
+. . exported "ODB"."REQUISITION_ORDER_DISTR"             1.336 MB  227171 rows
+. . exported "ODB"."ENGINEERING_TASK_CARD_CONTROL"       594.5 KB   26290 rows
+. . exported "ODB"."SYSTEM_NOTIFICATION"                 747.1 KB   26838 rows
+. . exported "ODB"."SYSTEM_DROP_DOWN"                    1.561 MB  101871 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_58"                10.03 MB   18392 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_57"                10.00 MB   18380 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_55"                9.986 MB   18368 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_54"                9.958 MB   18384 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_56"                9.978 MB   18367 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_53"                9.933 MB   18343 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_49"                9.855 MB   18335 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_48"                9.840 MB   18320 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_52"                9.925 MB   18319 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_51"                9.901 MB   18307 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_50"                9.870 MB   18287 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_47"                9.694 MB   18010 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_44"                9.659 MB   18000 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_46"                9.686 MB   17998 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_45"                9.659 MB   17984 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_43"                9.559 MB   17910 rows
+. . exported "ODB"."TRAX_DICTIONARY_REPORT"              587.8 KB   50178 rows
+. . exported "ODB"."PN_INVENTORY_REORDER"                373.7 KB   57302 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_39"                6.784 MB   16660 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_38"                6.772 MB   16648 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_37"                6.751 MB   16638 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_36"                6.743 MB   16627 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_34"                6.711 MB   16601 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_33"                6.708 MB   16590 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_32"                6.678 MB   16581 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_31"                6.663 MB   16571 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_28"                6.620 MB   16539 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_41"                6.844 MB   16271 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_35"                6.717 MB   16215 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_42"                6.858 MB   16277 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_40"                6.794 MB   16250 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_29"                6.622 MB   16155 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_30"                6.635 MB   16140 rows
+. . exported "ODB"."TMP_CNV_HA_INSTALL_REMOVE_HISTORY"   1.004 MB   26055 rows
+. . exported "ODB"."CORROSION_PROTECTION_CONTROL"        754.2 KB   36080 rows
+. . exported "ODB"."TMP_CNV_SYSTEM_NOTIFICATIONS_366904_BAK_041224"  566.9 KB   21165 rows
+. . exported "ODB"."TMP_CNV_SYSTEM_NOTIF_BAK_04122024"   566.9 KB   21106 rows
+. . exported "ODB"."TASK_CARD_RANGE"                     323.1 KB   47654 rows
+. . exported "ODB"."TRAXDOC_PN_NHA"                      417.9 KB   38462 rows
+. . exported "ODB"."PN_MASTER_ALERT"                     680.1 KB   63884 rows
+. . exported "ODB"."CONTACT_CONTROL"                     853.9 KB   20301 rows
+. . exported "ODB"."CUSTOMER_ORDER_HEADER"               497.8 KB    8142 rows
+. . exported "ODB"."RECURRENT_ITEMS"                     932.6 KB   31364 rows
+. . exported "ODB"."TASK_CARD_EFFECTIVITY_HD"            315.4 KB   54669 rows
+. . exported "ODB"."PN_LOCATION_BIN_CONTROL"             806.8 KB   49038 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_26"                6.483 MB   11433 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_25"                6.481 MB   11420 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_24"                6.453 MB   11411 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_23"                6.436 MB   11400 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_22"                6.422 MB   11389 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_21"                6.412 MB   11378 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_17"                6.344 MB   11333 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_16"                6.330 MB   11323 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_12"                6.275 MB   11275 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_11"                6.261 MB   11265 rows
+. . exported "ODB"."PN_MASTER_FACTOR"                    727.3 KB   60169 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_19"                6.387 MB   10981 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_18"                6.352 MB   10961 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_06"                6.183 MB   11204 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_15"                6.316 MB   10903 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_20"                6.386 MB   10939 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_14"                6.294 MB   10885 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_13"                6.279 MB   10880 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_10"                6.234 MB   10866 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_02"                6.191 MB   10815 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_07"                6.193 MB   10848 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_09"                6.217 MB   10831 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_03"                6.128 MB   10812 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_04"                6.145 MB   10848 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_08"                6.206 MB   10821 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_05"                6.160 MB   10788 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_01"                6.092 MB   10751 rows
+. . exported "ODB"."LOCATION_BIN_MASTER"                 452.3 KB   26779 rows
+. . exported "ODB"."ENGINEERING_SCHEDULE_CTL_RV"         367.4 KB   28297 rows
+. . exported "ODB"."PN_EFF_POS_RANGE"                    224.7 KB   25000 rows
+. . exported "ODB"."TEMP_INVENTORY_COUNT"                421.8 KB   23430 rows
+. . exported "ODB"."CUSTOMER_ORDER_DETAIL"                 465 KB   15103 rows
+. . exported "ODB"."TASK_CARD_EFFECTIVITY_HEAD"          399.0 KB   36043 rows
+. . exported "ODB"."PN_SOFTWARE_CONFIG_EFF_REV"          171.5 KB   14591 rows
+. . exported "ODB"."LOCATION_SITE_ASSIGNED"              227.5 KB   15167 rows
+. . exported "ODB"."INTERFACE_ORDER_MAINTENANCE"         370.4 KB   22053 rows
+. . exported "ODB"."FLIGHT_CRS"                          341.7 KB   33655 rows
+. . exported "ODB"."INTERFACE_MESSAGE_ACK"               335.8 KB   30282 rows
+. . exported "ODB"."TMP_CNV_HA_EC_SCHEDULE"              317.0 KB    6173 rows
+. . exported "ODB"."PN_NEXT_LOWER_ASSEMBLY"              195.7 KB   18070 rows
+. . exported "ODB"."PN_INTERCHG_ONE_WAY"                 199.6 KB   24036 rows
+. . exported "ODB"."INTERFACE_PART_CONFIG_INFO"          424.3 KB   19469 rows
+. . exported "ODB"."INTERFACE_ORDER_DOCUMENT"            198.1 KB   18242 rows
+. . exported "ODB"."DEFECT_MEL_MASTER"                   335.7 KB    6495 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_REV"               298.2 KB    3773 rows
+. . exported "ODB"."ENGINEERING_TEMP"                    136.2 KB   19206 rows
+. . exported "ODB"."PN_POSITION_HEADER"                  206.1 KB   14005 rows
+. . exported "ODB"."TEMPCNV_PN_POS_DIST_BACKUP"          62.79 KB   17029 rows
+. . exported "ODB"."PN_SOFTWARE_CONFIG_EFF"              77.74 KB    9007 rows
+. . exported "ODB"."PN_EFFECTIVITY_HEADER_GSE"           109.6 KB   18640 rows
+. . exported "ODB"."ATA_CHAPTER_SECTION_ALERT"           116.8 KB    9525 rows
+. . exported "ODB"."TEMP_INVENTORY_COUNT_CHECK"          139.2 KB   12261 rows
+. . exported "ODB"."TMP_CNV_HA_PN_MASTER_OVRR"           265.8 KB   38335 rows
+. . exported "ODB"."TRAINING_EMPLOYEE_SCHEDULE"          132.6 KB   10345 rows
+. . exported "ODB"."SYSTEM_WINDOW_SDI_CONTROL"           240.2 KB   25272 rows
+. . exported "ODB"."TEMP_ESCR_RV_BAK"                    117.6 KB   12002 rows
+. . exported "ODB"."TEMPCNV_B767_PN_POS_DIST"            78.95 KB   13773 rows
+. . exported "ODB"."BUYER_QUEUE_OPT"                     58.21 KB   11596 rows
+. . exported "ODB"."SYSTEM_CUSTOM_WINDOW_SETUP"          211.9 KB   16881 rows
+. . exported "ODB"."INTERFACE_ORDER_RECEIPT"             243.9 KB    6302 rows
+. . exported "ODB"."TRAX_DATAWINDOWS"                    285.7 KB    1064 rows
+. . exported "ODB"."SYSTEM_TRAN_CONFIG"                  244.2 KB    1452 rows
+. . exported "ODB"."MAIN"                                140.7 KB    3980 rows
+. . exported "ODB"."PN_SOFTWARE_CONFIG_REV"              106.5 KB    3566 rows
+. . exported "ODB"."CUSTOMER_INVOICE_HEADER"             145.1 KB    8371 rows
+. . exported "ODB"."RELIABILITY_PN"                      184.4 KB   17890 rows
+. . exported "ODB"."FIXED_ASSET_PENDING"                 281.5 KB   10592 rows
+. . exported "ODB"."PLANNING_TRANSACTION"                159.6 KB    4242 rows
+. . exported "ODB"."INTERFACE_ORDER_STATUS"              141.0 KB    7652 rows
+. . exported "ODB"."ENGINEERING_SCHEDULE_CONTROL"        132.9 KB    8486 rows
+. . exported "ODB"."TASK_CARD_MPD_REV"                   101.2 KB    4425 rows
+. . exported "ODB"."PN_SW_CONF_AUTHORIZATION_UPD"        72.83 KB    3240 rows
+. . exported "ODB"."INTERFACE_PART_CONFIG"               167.1 KB    7087 rows
+. . exported "ODB"."AIRPORT_CODES"                       205.8 KB    9300 rows
+. . exported "ODB"."TRAINING_SCHOOL_EMPLOYEE"            48.80 KB   15239 rows
+. . exported "ODB"."TMP_CNV_TC_NOTIFICATIONS_366904"     29.78 KB    3957 rows
+. . exported "ODB"."TMP_TASK_CARD_ITEM_388901"           1.290 MB     252 rows
+. . exported "ODB"."SYS_EXPORT_SCHEMA_27"                56.60 KB    2274 rows
+. . exported "ODB"."SYSTEM_CUSTOM_DATAWINDOW"            7.254 MB    3451 rows
+. . exported "ODB"."RELIABILITY_PN_BKUP_20180501"        116.7 KB   10554 rows
+. . exported "ODB"."TASK_CARD_SURVEY"                    120.8 KB    3404 rows
+. . exported "ODB"."TEMP_PN_INVENTORY_ASSEMBLY"          75.64 KB    5808 rows
+. . exported "ODB"."MEL_AUTHORIZATION_UPD"               54.53 KB    3386 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_DETAIL_RV"         56.41 KB    2665 rows
+. . exported "ODB"."ORDER_REQUISITION_CONTROL"           87.32 KB    6664 rows
+. . exported "ODB"."AC_ASSIGNMENTS"                      59.47 KB    8158 rows
+. . exported "ODB"."RECURRENT_ITEMS_AUTHORIZATION"       106.2 KB    1434 rows
+. . exported "ODB"."GSE_MASTER"                          70.14 KB    2117 rows
+. . exported "ODB"."TASK_CARD_SURVEY_REV"                91.44 KB    2573 rows
+. . exported "ODB"."PN_SOFTWARE_CONFIG"                  57.88 KB    1817 rows
+. . exported "ODB"."TASK_CARD_CONTROL_MASTER"            45.52 KB    5664 rows
+. . exported "ODB"."TEMPCNV_B767_PN_POS_HEAD"            34.00 KB    4211 rows
+. . exported "ODB"."CONCESSION_REGISTRY"                 81.44 KB     226 rows
+. . exported "ODB"."LOCATION_MASTER"                     81.32 KB     677 rows
+. . exported "ODB"."ETECH_DEFECT"                        100.4 KB    2493 rows
+. . exported "ODB"."TASK_CARD_MPD"                       56.95 KB    2015 rows
+. . exported "ODB"."MASTER_AUTHORIZATION_UPD"            33.53 KB     854 rows
+. . exported "ODB"."TMP_CNV_HA_EC_DOCUMENT"                 28 KB    6334 rows
+. . exported "ODB"."SYSTEM_TRAX_QUICK_PRINT_SECQ"        68.35 KB    7624 rows
+. . exported "ODB"."INTERFACE_ORDER_ACCEPTANCE"          57.54 KB    4520 rows
+. . exported "ODB"."INTERFACE_ORDER_QUOTATION"           70.84 KB     799 rows
+. . exported "ODB"."PN_POOL_MASTER_RV"                   33.07 KB    2580 rows
+. . exported "ODB"."FLIGHT_SCHEDULE_VIEW"                51.28 KB    2689 rows
+. . exported "ODB"."INTERFACE_ORDER_MASK_COMPONENT"      40.68 KB    1888 rows
+. . exported "ODB"."JOURNAL_ENTRIES_EXPENDITURE"         28.56 KB    1886 rows
+. . exported "ODB"."TEMP_CNV_TASK_CARD_ITEM"             66.68 KB     495 rows
+. . exported "ODB"."INTERFACE_QUOTATION_COMPONENT"       65.53 KB     799 rows
+. . exported "ODB"."SECURITY_HEADER"                     62.11 KB     749 rows
+. . exported "ODB"."TASK_CARD_SURVEY_ANSWERS"            43.12 KB    2129 rows
+. . exported "ODB"."PN_POSITION_DISTRIBUT_AU"            14.07 KB    2376 rows
+. . exported "ODB"."TMP_CNV_HA_ATA_ALERTS"               30.31 KB    1428 rows
+. . exported "ODB"."SYSTEM_FILTERS"                      50.21 KB     787 rows
+. . exported "ODB"."AUTHORIZATION_MASTER_GROUP"          33.53 KB    2982 rows
+. . exported "ODB"."PN_NHA_EFFECTIVITY"                  39.95 KB    3098 rows
+. . exported "ODB"."RELATION_MASTER_MESSAGES"            23.51 KB    2387 rows
+. . exported "ODB"."TMP_TASK_CARD_ITEM_403749"           650.8 KB      90 rows
+. . exported "ODB"."TASK_CARD_EFF_REF_REV"               20.35 KB    1361 rows
+. . exported "ODB"."CALENDAR_DAY"                        20.14 KB    8036 rows
+. . exported "ODB"."INTERFACE_ORDER_MASK"                42.52 KB    1395 rows
+. . exported "ODB"."TEMP_SEC_HEADER_0207"                41.42 KB     459 rows
+. . exported "ODB"."PLANNER_INTER_SELECTION"             121.8 KB      67 rows
+. . exported "ODB"."TRAXDOC_EFFECTIVITY"                 11.74 KB    2513 rows
+. . exported "ODB"."ATA_CHAPTER_SECTION_PARAGRAPH"       35.06 KB    1583 rows
+. . exported "ODB"."PRINTER_SIGN_ON_DEFAULT"             51.57 KB    1293 rows
+. . exported "ODB"."GSE_SCHEDULE"                        14.78 KB    1848 rows
+. . exported "ODB"."ENGINEERING_CONTROL_RANGE"           22.28 KB     884 rows
+. . exported "ODB"."TMP_CNV_HA_PN_MASTER"                13.49 KB    1300 rows
+. . exported "ODB"."TMP_CNV_HA_PN_CONTROL_RESET"         21.58 KB    2801 rows
+. . exported "ODB"."TMP_CNV_HA_TASK_CARD_ITEM"           31.48 KB     157 rows
+. . exported "ODB"."AC_MASTER"                           25.64 KB      91 rows
+. . exported "ODB"."ENGINEERING_CTL_POSITION"            18.85 KB     535 rows
+. . exported "ODB"."USER_LAYOUT"                         24.01 KB    1767 rows
+. . exported "ODB"."TRAINING_MASTER"                     35.42 KB     643 rows
+. . exported "ODB"."TMP_CNV_HA_PN_POSITION"              22.89 KB    2007 rows
+. . exported "ODB"."EMPLOYEE_SKILL"                      19.46 KB    1110 rows
+. . exported "ODB"."TASK_CARD_EFF_REFERENCES"            17.02 KB    1009 rows
+. . exported "ODB"."PLANNING_JOBS_ERRORS"                15.39 KB     436 rows
+. . exported "ODB"."LOCATION_SITE_EMP_SCHL_TMPLT"        10.54 KB     155 rows
+. . exported "ODB"."TRAX_DICTIONARY_REPORT_HEADER"       19.37 KB    1412 rows
+. . exported "ODB"."CURRENCY_EXCHANGE_HISTORY"           25.00 KB    1556 rows
+. . exported "ODB"."INTERFACE_QUOTAT_PN_REQUIRED"        15.55 KB     870 rows
+. . exported "ODB"."IOS_NOTIFICATION_QUEUE"              14.65 KB     304 rows
+. . exported "ODB"."IOS_PRINTING_JOBS"                   14.75 KB     434 rows
+. . exported "ODB"."AC_WEIGHT_HISTORY"                   25.64 KB     450 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_HEADER_RV"         19.04 KB     142 rows
+. . exported "ODB"."LOCATION_SITE"                       26.21 KB     680 rows
+. . exported "ODB"."TEMP_PN_REORDER_20180724"            24.99 KB     673 rows
+. . exported "ODB"."AC_CONTROLLER_PANEL_FILTER"          20.03 KB      29 rows
+. . exported "ODB"."PN_SELL_WARRANTY"                    25.24 KB     821 rows
+. . exported "ODB"."SYSTEM_TRAN"                         29.21 KB     403 rows
+. . exported "ODB"."TASK_CARD_SURVEY_SC"                 16.06 KB     720 rows
+. . exported "ODB"."TEMPCNV_PN_POS_HEAD_BACKUP"          18.01 KB     873 rows
+. . exported "ODB"."REQUISITION_QUOTE"                   21.54 KB     447 rows
+. . exported "ODB"."DEFECT_REPORT_MIS"                   23.37 KB    1269 rows
+. . exported "ODB"."INTERFACE_QUOTATION_ACCEPTANCE"      21.68 KB     603 rows
+. . exported "ODB"."TRAXDOC"                             17.10 KB     158 rows
+. . exported "ODB"."ORDER_PRICE_CHANGE_AUTH_UPD"         20.80 KB     801 rows
+. . exported "ODB"."TMP_CNV_HA_PARTS_INSTALLED"          20.15 KB    1013 rows
+. . exported "ODB"."TRAXDOC_IMPORT_FIELDS"               13.83 KB      94 rows
+. . exported "ODB"."BACKUP_ACPN_09242024"                24.28 KB     754 rows
+. . exported "ODB"."REQUISITION_QUOTE_DISTRIBUTION"      20.79 KB     202 rows
+. . exported "ODB"."LDAP_MASTER"                         22.39 KB    1098 rows
+. . exported "ODB"."ENGINEERING_PN_SOFTWARE_REV"         13.15 KB     583 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_DETAIL"            14.30 KB     217 rows
+. . exported "ODB"."DEFECT_REPORT_FAULT"                 22.16 KB     884 rows
+. . exported "ODB"."BACKUP_PIDLOC_10112024"              13.51 KB      15 rows
+. . exported "ODB"."PN_POOL_MASTER"                      12.87 KB     404 rows
+. . exported "ODB"."PN_INVENTORY_DETAIL_BCK_431457"      12.17 KB       1 rows
+. . exported "ODB"."AC_OUT_OF_SERVICE_DETAIL"            17.92 KB     227 rows
+. . exported "ODB"."PROFILE_MASTER"                      32.75 KB       1 rows
+. . exported "ODB"."SYSTEM_FORMS_REVISION"               13.33 KB     577 rows
+. . exported "ODB"."ETECH_LOGBOOK"                       11.87 KB      75 rows
+. . exported "ODB"."CONV_ORDERS_PO"                      9.046 KB     465 rows
+. . exported "ODB"."UOM_CONVERSION"                      14.12 KB    1110 rows
+. . exported "ODB"."FILTER_EFFECTIVITY"                  8.242 KB     500 rows
+. . exported "ODB"."AC_OUT_OF_SERVICE"                   16.31 KB     281 rows
+. . exported "ODB"."PN_NEXT_LOWER_SHOP_BRK"              11.32 KB     404 rows
+. . exported "ODB"."REQUISITION_QUOTE_HEADER"            17.46 KB     218 rows
+. . exported "ODB"."TEMP_PN_REORDER"                     16.96 KB     318 rows
+. . exported "ODB"."TMP_TASK_CARD_ITEM_413546"           21.71 KB      13 rows
+. . exported "ODB"."SYSTEM_FIELD_TIPS"                   14.05 KB     289 rows
+. . exported "ODB"."SESSION_MASTER"                      18.95 KB     685 rows
+. . exported "ODB"."CONCESSION_REGISTRY_HD"              14.26 KB      29 rows
+. . exported "ODB"."NR_AUTHORIZATION"                    9.851 KB     185 rows
+. . exported "ODB"."ENGINEERING_SCHEDULE_OVERRIDE"       9.046 KB     219 rows
+. . exported "ODB"."ENGINEERING_PN_SOFTWARE"             10.50 KB     337 rows
+. . exported "ODB"."TASK_CARD_EMPLOYEE_ASSIGNED"         9.085 KB     172 rows
+. . exported "ODB"."SECURITY_PROFILE"                    13.98 KB     626 rows
+. . exported "ODB"."LOCATION_MASTER_ROUTINE"             13.24 KB     692 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_HEADER"            10.67 KB      14 rows
+. . exported "ODB"."EMOBILITY_PICKLIST_QUEUE"            15.38 KB    1330 rows
+. . exported "ODB"."TMP_HA_PN_ACCM_TIMES"                10.44 KB    1320 rows
+. . exported "ODB"."SHIFT_PATTERN"                       8.476 KB      65 rows
+. . exported "ODB"."AC_TYPE_SERIES_MASTER"               9.242 KB       8 rows
+. . exported "ODB"."CONV_INVENTORY_PARTS"                10.39 KB     221 rows
+. . exported "ODB"."TRAX_EDIT_INTERRUPTER"               13.39 KB     380 rows
+. . exported "ODB"."DEFECT_REPORT_DELAY"                 10.34 KB      13 rows
+. . exported "ODB"."AUTHORIZATION_MASTER"                10.30 KB     327 rows
+. . exported "ODB"."SURVEY_MASTER"                       11.35 KB      57 rows
+. . exported "ODB"."AC_OUT_OF_SERVICE_HD"                10.77 KB     116 rows
+. . exported "ODB"."TRAXDOC_REVISION_HISTORY"            10.16 KB     220 rows
+. . exported "ODB"."TMP_CNV_HA_INVENTORY_PARTS"           9.25 KB     221 rows
+. . exported "ODB"."TRAINING_SCHOOL"                     9.039 KB      40 rows
+. . exported "ODB"."INTERFACE_ORDER_NOTES"               41.79 MB     136 rows
+. . exported "ODB"."EMOBILITY_GEO_LOC"                   13.97 KB     563 rows
+. . exported "ODB"."EC_RANGE"                            8.351 KB      42 rows
+. . exported "ODB"."TRAINING_SCHOOL_EMP_TASK"            8.125 KB      88 rows
+. . exported "ODB"."TRAINING_MASTER_TASK"                7.648 KB     149 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_DOCUMENT"         6.804 KB     205 rows
+. . exported "ODB"."TRAX_GLOBAL_FILES"                   27.64 KB       1 rows
+. . exported "ODB"."MANHOURS_SCHEDULE_PARAM"             7.773 KB       1 rows
+. . exported "ODB"."EMAIL_LOG"                           8.742 KB      21 rows
+. . exported "ODB"."MASTER_AUTHORIZATION_CONTROL"        8.273 KB      17 rows
+. . exported "ODB"."INTERFACE_NOTES_DETAILS"             11.28 KB     136 rows
+. . exported "ODB"."ENGINEERING_PENDING_RELEASE"         7.375 KB      91 rows
+. . exported "ODB"."PART_FIELD_VISIBLE"                  7.414 KB       2 rows
+. . exported "ODB"."TMP_CNV_DEL_BATCH"                   9.046 KB     950 rows
+. . exported "ODB"."DAILY_SHIFT_PATTERN"                 8.085 KB      43 rows
+. . exported "ODB"."MPD_REVISION_HISTORY"                8.671 KB      56 rows
+. . exported "ODB"."TMP_CNV_HA_SWAP_DATE"                8.460 KB     401 rows
+. . exported "ODB"."TRAXDOC_EFFECTIVITY_HEADER"          7.945 KB     158 rows
+. . exported "ODB"."PN_POOL_MASTER_HEADER_RV"            8.093 KB      30 rows
+. . exported "ODB"."CHANGE_NOTIFICATION"                 7.320 KB      55 rows
+. . exported "ODB"."TMP_CNV_HA_PN_EFFECTIVITY"           8.304 KB     552 rows
+. . exported "ODB"."EMPLOYEE_SKILL_EFFECTIVITY"          6.320 KB     260 rows
+. . exported "ODB"."EC_RANGE_RV"                         7.507 KB       8 rows
+. . exported "ODB"."SYSTEM_NOTIFICATION_HEADER"          11.41 KB      98 rows
+. . exported "ODB"."DEFECT_REPORT_DELAY_HD"              7.687 KB       3 rows
+. . exported "ODB"."TRAXDOC_AUTHORIZATION_UPD"           8.195 KB      62 rows
+. . exported "ODB"."GL_ACCOUNTS"                         8.945 KB     147 rows
+. . exported "ODB"."PN_POOL_MASTER_HEADER"               7.703 KB      13 rows
+. . exported "ODB"."INTERFACE_QUOTATION_TEARDOWN"        8.343 KB     105 rows
+. . exported "ODB"."AC_UNIT_TYPE"                        7.265 KB     160 rows
+. . exported "ODB"."INTERFACE_QUOTATION_PN_REMOVED"      8.226 KB     105 rows
+. . exported "ODB"."EMPLOYEE_ASSIGNMENTS"                8.570 KB     137 rows
+. . exported "ODB"."EMPLOYEE_SCHEDULE"                   7.890 KB     126 rows
+. . exported "ODB"."PLANNING_LTRM_RULES"                 6.843 KB       1 rows
+. . exported "ODB"."AC_SCHEDULE_FLIGHT"                  7.437 KB      99 rows
+. . exported "ODB"."SKILL_MASTER"                        7.281 KB      16 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_CONFLICT_REV"      7.015 KB      70 rows
+. . exported "ODB"."USER_FILTER"                         8.617 KB     104 rows
+. . exported "ODB"."PHASE_TEMPLATE_DETAIL"               7.140 KB      66 rows
+. . exported "ODB"."PROD_CONTROL_PART_FILTER"            6.812 KB       4 rows
+. . exported "ODB"."PN_AUTHORIZATION_STEP"               7.367 KB      68 rows
+. . exported "ODB"."MASTER_AUTHORIZATION_STEP"           6.796 KB       4 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_CONFLICT"          6.945 KB      64 rows
+. . exported "ODB"."ENGINEERING_AUTHORIZATION_STEP"      7.390 KB      30 rows
+. . exported "ODB"."TRAX_DATAWINDOW_FIELD_CTL"           6.984 KB     102 rows
+. . exported "ODB"."INSURANCE_CLAIM_HEADER"              6.687 KB       1 rows
+. . exported "ODB"."INTELLI_FORM_DETAIL"                 7.234 KB      67 rows
+. . exported "ODB"."TMP_CNV_HA_PN_POSITION_UPDATE"       7.820 KB     245 rows
+. . exported "ODB"."LOCATION_SITE_VACATION"              6.554 KB       1 rows
+. . exported "ODB"."GSE_TYPE_SERIES_MASTER"              7.187 KB      74 rows
+. . exported "ODB"."TRAXDOC_SKILL_MASTER_MATCH"          7.343 KB     168 rows
+. . exported "ODB"."PN_MASTER_WITH"                      7.578 KB      82 rows
+. . exported "ODB"."TASK_CARD_AUTHORIZATION_STEP"        7.164 KB      32 rows
+. . exported "ODB"."EMPLOYEE_CONTROL"                    6.960 KB      33 rows
+. . exported "ODB"."INTELLI_FORM"                        366.1 KB      11 rows
+. . exported "ODB"."USER_REQUIREMENT_HEADER"             6.554 KB       3 rows
+. . exported "ODB"."TRAXDOC_SECURITY"                    6.523 KB      28 rows
+. . exported "ODB"."EMPLOYEE_AUTHORIZATION_APV"          6.453 KB       4 rows
+. . exported "ODB"."PROD_CONTROL_TC_FILTER"              6.578 KB       8 rows
+. . exported "ODB"."PROD_CONTROL_NR_FILTER"              6.359 KB       2 rows
+. . exported "ODB"."GL_ACCOUNTS_PARAM"                   6.296 KB       1 rows
+. . exported "ODB"."TASK_CARD_EXCLUDE_TRAXDOC_IMG"       6.195 KB      43 rows
+. . exported "ODB"."SYSTEM_XML_EXPORTS"                  6.679 KB       2 rows
+. . exported "ODB"."ORDER_AUTHORIZATION_STEP"            6.562 KB      11 rows
+. . exported "ODB"."ENGINEERING_PN_EFFECTIVITY_CTL"      7.164 KB      67 rows
+. . exported "ODB"."TRAINING_SCHOOL_TASK"                6.429 KB      39 rows
+. . exported "ODB"."USER_REQUIREMENT_DETAIL"             6.312 KB       4 rows
+. . exported "ODB"."TASK_CARD_WEIGHT_BALANCE"            7.679 KB      45 rows
+. . exported "ODB"."PN_VENDOR_PRICE_AUTORD_A"            6.320 KB      20 rows
+. . exported "ODB"."AC_OOS_NARRATIVE"                    7.539 KB      29 rows
+. . exported "ODB"."TMP_CNV_HA_TASK_CARD"                6.265 KB      12 rows
+. . exported "ODB"."PN_POOL_EFFECTIVITY_RV"              6.125 KB      20 rows
+. . exported "ODB"."PRE_RECEIVING"                       6.140 KB       1 rows
+. . exported "ODB"."AC_UNIT_TYPE_HD"                     6.085 KB      36 rows
+. . exported "ODB"."SYSTEM_DATAWINDOW_CONTROL"           7.015 KB      67 rows
+. . exported "ODB"."ORDER_INVOICE_MEMO_REQUEST"          6.484 KB       6 rows
+. . exported "ODB"."PN_POOL_EFFECTIVITY"                 6.031 KB      20 rows
+. . exported "ODB"."EMPLOYEE_SCHEDULE_GROUP"             6.351 KB      13 rows
+. . exported "ODB"."TRAINING_SCHOOL_SLOTS"               6.414 KB      38 rows
+. . exported "ODB"."EMPLOYEE_AUTHORIZATION"              6.117 KB       2 rows
+. . exported "ODB"."SYSTEM_PRINTER_CONTROL"              6.085 KB       1 rows
+. . exported "ODB"."MEL_AUTHORIZATION_STEP"              6.070 KB       1 rows
+. . exported "ODB"."ENGINEERING_SITE_CONTROL_RV"         6.375 KB      27 rows
+. . exported "ODB"."SYSTEM_TRAN_CODE_WO_EO"              6.367 KB      48 rows
+. . exported "ODB"."SURVEY_TRAN_CONTROL"                 6.187 KB      10 rows
+. . exported "ODB"."FILTER_EFFECTIVITY_HEADER"           6.460 KB      30 rows
+. . exported "ODB"."RI_WORK_REQUIRED"                    7.546 KB      52 rows
+. . exported "ODB"."EMPLOYEE_AUTH_PRE_REQ"               6.164 KB      18 rows
+. . exported "ODB"."SYSTEM_CUSTOM_TRIGGER"               6.234 KB      84 rows
+. . exported "ODB"."TMP_CNV_HA_PN_INTERCHG"              6.507 KB      62 rows
+. . exported "ODB"."LOCATION_SITE_EFFECTIVITY_DIST"      5.796 KB      48 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_DISTR"             6.226 KB       7 rows
+. . exported "ODB"."FAULT_CODE_MASTER_HEADER"            5.914 KB       1 rows
+. . exported "ODB"."SURVEY_MASTER_ANSWERS"                   6 KB       3 rows
+. . exported "ODB"."ORDER_REPAIR_FOLLOWING"              5.859 KB       1 rows
+. . exported "ODB"."ENGINEERING_SITE_CONTROL"            6.117 KB      17 rows
+. . exported "ODB"."EMPLOYEE_ATTENDANCE_CURRENT"         6.132 KB      26 rows
+. . exported "ODB"."TRAX_CONVERT_RUN_HISTORY"            6.359 KB      95 rows
+. . exported "ODB"."ENGINEERING_AFFECTED_MANUALS"            6 KB       5 rows
+. . exported "ODB"."PLANNING_LTRM_LOC_SITES"             5.992 KB       5 rows
+. . exported "ODB"."ENGINEERING_SAMPLING"                5.820 KB       8 rows
+. . exported "ODB"."FAULT_CODE_REPORTS"                      6 KB       4 rows
+. . exported "ODB"."LOCATION_SITE_EFFECTIVITY_HEAD"      5.765 KB       3 rows
+. . exported "ODB"."IFACE_INST_UNITS_HEADER"             6.289 KB      33 rows
+. . exported "ODB"."ENGINEERING_ORDER_RV_ATA"            5.914 KB      10 rows
+. . exported "ODB"."PN_POOL_EFFECT_HEADER"               5.703 KB       1 rows
+. . exported "ODB"."PN_TOOL_CALIBRATION_DETAIL"          5.703 KB       1 rows
+. . exported "ODB"."TASK_CARD_RESOLUTION_ITEM_REV"       5.890 KB      13 rows
+. . exported "ODB"."INTERFACE_ORDER_REQUEST"             5.851 KB       8 rows
+. . exported "ODB"."DEFECT_REPORT_DEFER_HISTORY"         6.101 KB      19 rows
+. . exported "ODB"."AC_CONTROLLER_PANEL_ALERT"           5.804 KB       4 rows
+. . exported "ODB"."TERMS_CONDITIONS"                    5.789 KB       7 rows
+. . exported "ODB"."ENGINEERING_ORDER_ATA"               5.773 KB       9 rows
+. . exported "ODB"."NOTE_PAD_ROUTING"                    5.632 KB       1 rows
+. . exported "ODB"."PN_RECEIVING_CHECK_LIST_MASTER"       5.75 KB       3 rows
+. . exported "ODB"."PHASE_TEMPLATE_HEADER"               5.726 KB       4 rows
+. . exported "ODB"."SYSTEM_PACK_PRINT_HEADER"            5.593 KB       2 rows
+. . exported "ODB"."SKILL_HIERARCHY"                     5.734 KB      11 rows
+. . exported "ODB"."CUSTOMER_DISCOUNT"                   5.601 KB       1 rows
+. . exported "ODB"."ENGINEERING_SCHEDULE_CTRL_LOOP"      5.601 KB       5 rows
+. . exported "ODB"."HA_DBSIZE"                           6.257 KB     231 rows
+. . exported "ODB"."EMAIL_SIGNATURES"                    5.718 KB       4 rows
+. . exported "ODB"."TASK_CARD_RESOLUTION_ITEM"           5.625 KB       7 rows
+. . exported "ODB"."PN_TOOL_CALIBRATION_MASTER"          5.648 KB       4 rows
+. . exported "ODB"."SYSTEM_PACK_PRINT_DETAIL"            5.515 KB       1 rows
+. . exported "ODB"."FAULT_CODE_REPORTS_DEFECTS"          5.507 KB       1 rows
+. . exported "ODB"."TMP_CNV_HA_EC_TC"                    5.375 KB      37 rows
+. . exported "ODB"."MPD_REV_HISTORY_AC_EFF"              5.671 KB      53 rows
+. . exported "ODB"."PN_RESTRICTION"                        5.5 KB       6 rows
+. . exported "ODB"."NOTIFICATION_LOCK"                   5.445 KB       6 rows
+. . exported "ODB"."COA_AVMS_NOTIFICATION"               5.351 KB       1 rows
+. . exported "ODB"."TRAX_DATAWINDOW_FIELD_CTL_H"         5.320 KB       1 rows
+. . exported "ODB"."TRANSACTION_LOCK"                    5.281 KB       1 rows
+. . exported "ODB"."TLOGLEVEL"                           5.554 KB       7 rows
+. . exported "ODB"."CUSTOMER_LANDING"                    5.203 KB       1 rows
+. . exported "ODB"."CUSTOMER_INVENTORY_OWNER"            5.210 KB       1 rows
+. . exported "ODB"."TMP_CNV_HA_TC_EFFECTIVITY_AC"        5.289 KB      40 rows
+. . exported "ODB"."PN_INVENTORY_HIS_TRANS_TYPE"         5.726 KB     132 rows
+. . exported "ODB"."PLANNING_WO_MANHR_TMP"               5.187 KB      32 rows
+. . exported "ODB"."TMP_CNV_HA_EC_TC_DELETE"             5.070 KB      14 rows
+. . exported "ODB"."ETECH_MAPPING"                       4.890 KB       4 rows
+. . exported "ODB"."TMP_CNV_HA_DELETE_PN_EFFECTIVITY"    4.859 KB       2 rows
+. . exported "ODB"."NIK_TEST"                            4.789 KB       1 rows
+. . exported "ODB"."HOUR_24"                             4.781 KB      24 rows
+. . exported "ODB"."TEST_2HR_REC"                         4.75 KB       1 rows
+. . exported "ODB"."ACA_BATCH_OWNER_UPD"                 5.171 KB       0 rows
+. . exported "ODB"."AC_ACTUAL_FLIGHTS_CREW_MEMBER"       5.671 KB       0 rows
+. . exported "ODB"."AC_ACTUAL_FLIGHTS_EXCHANGE"          5.601 KB       0 rows
+. . exported "ODB"."AC_ACTUAL_FLIGHTS_FORMULAS"          5.453 KB       0 rows
+. . exported "ODB"."AC_APPROACH_SURVEY"                  6.375 KB       0 rows
+. . exported "ODB"."AC_APPROACH_SURVEY_HD"               6.351 KB       0 rows
+. . exported "ODB"."AC_AREA_ATA"                         6.164 KB       0 rows
+. . exported "ODB"."AC_AUTO_LINE_WO"                     5.632 KB       0 rows
+. . exported "ODB"."AC_BRIDGE"                             8.5 KB       0 rows
+. . exported "ODB"."AC_CATALOG"                          5.140 KB       0 rows
+. . exported "ODB"."AC_CONTROLLER_PANEL_REMINDER"        5.804 KB       0 rows
+. . exported "ODB"."AC_FUEL_TANKS"                       5.039 KB       0 rows
+. . exported "ODB"."AC_LOG_BOOK_ASSIGNMENT"              5.226 KB       0 rows
+. . exported "ODB"."AC_MASTER_ETOPS"                     5.539 KB       0 rows
+. . exported "ODB"."AC_MASTER_OVERNIGHT"                 5.226 KB       0 rows
+. . exported "ODB"."AC_MODIFICATION_PLANS"               5.140 KB       0 rows
+. . exported "ODB"."AC_MODIFICATION_PLANS_DETAIL"        5.382 KB       0 rows
+. . exported "ODB"."AC_MODIFICATION_PLANS_PART"          5.265 KB       0 rows
+. . exported "ODB"."AC_ORIGINAL_ENGINES"                 5.039 KB       0 rows
+. . exported "ODB"."AC_RESTRICTIONS_PENDING"             4.843 KB       0 rows
+. . exported "ODB"."AC_SCHEDULE_FLIGHT_FORMULAS"         5.281 KB       0 rows
+. . exported "ODB"."AC_SCHEDULE_FLIGHT_PLAN"             5.648 KB       0 rows
+. . exported "ODB"."AC_SEAT_CONFIG"                      5.695 KB       0 rows
+. . exported "ODB"."AC_TEAR_DOWN_DETAIL"                 6.117 KB       0 rows
+. . exported "ODB"."AC_TEAR_DOWN_HEADER"                 5.585 KB       0 rows
+. . exported "ODB"."AC_TYPE_CONFIGURATION"               5.718 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FORM_SURVEY"          6.648 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FORM_SURVEY_SUB"      6.320 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FORM_SUR_ANSWER"      5.640 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FORM_SUR_SUBANS"      5.789 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FORM_TYPE"            5.687 KB       0 rows
+. . exported "ODB"."AC_TYPE_SERIES_FUEL_TANKS"           5.125 KB       0 rows
+. . exported "ODB"."AERODOX_FAVORITES"                   5.804 KB       0 rows
+. . exported "ODB"."ATA_CHAPTER_ASC"                     5.476 KB       0 rows
+. . exported "ODB"."ATA_CHAPTER_SECTION_ALERT_IFSD"      5.437 KB       0 rows
+. . exported "ODB"."ATA_PN_AC_POSITION"                  5.335 KB       0 rows
+. . exported "ODB"."ATA_SPEC_HEADER"                     5.945 KB       0 rows
+. . exported "ODB"."ATA_SPEC_XML"                        5.585 KB       0 rows
+. . exported "ODB"."ATA_TROUBLE_SHOOTING"                5.773 KB       0 rows
+. . exported "ODB"."BINNING_INTERFACE"                   6.695 KB       0 rows
+. . exported "ODB"."BINNING_INTERFACE_WAITING"           4.851 KB       0 rows
+. . exported "ODB"."BIN_INVENTORY_PHYSICAL"              5.460 KB       0 rows
+. . exported "ODB"."BLOB_IMG_TEMP"                       5.179 KB       0 rows
+. . exported "ODB"."BUST_SUB_CATEGORY"                   5.218 KB       0 rows
+. . exported "ODB"."CCI_ERROR_QUEUE"                     5.179 KB       0 rows
+. . exported "ODB"."CDRM_CONFIGURATION"                  5.664 KB       0 rows
+. . exported "ODB"."CHANGE_NOTIFICATION_EMPLOYEES"       5.078 KB       0 rows
+. . exported "ODB"."CLASS_DEFINITION"                    4.960 KB       0 rows
+. . exported "ODB"."CMS_TRAX_TEMP"                       5.023 KB       0 rows
+. . exported "ODB"."CNV_ENG_PN_EC_LIST"                  7.867 KB       0 rows
+. . exported "ODB"."COA_AVMS_ERROR_FILES"                5.039 KB       0 rows
+. . exported "ODB"."COA_IMPORT"                          5.796 KB       0 rows
+. . exported "ODB"."COA_PN_TRANSACTION"                  5.390 KB       0 rows
+. . exported "ODB"."COMAT_DASHBOARD_DETAIL"              6.117 KB       0 rows
+. . exported "ODB"."COMAT_DASHBOARD_HEADER"              5.914 KB       0 rows
+. . exported "ODB"."COMPANY_CONTACT_SORT"                5.187 KB       0 rows
+. . exported "ODB"."CONTACT_CONTROL_MRO"                 5.234 KB       0 rows
+. . exported "ODB"."CONTRACTOR_AUTH_CONTRACT"             5.25 KB       0 rows
+. . exported "ODB"."CONTRACTOR_AUTH_REQUEST"             6.578 KB       0 rows
+. . exported "ODB"."CONTRACTOR_AUTH_REQUEST_PN"          5.234 KB       0 rows
+. . exported "ODB"."CONV_AC_MASTER"                      10.95 KB       0 rows
+. . exported "ODB"."CONV_ADV_AC_PN_TRANS_HISTORY"        6.156 KB       0 rows
+. . exported "ODB"."CONV_ADV_AC_UNIT_TRANSACTION"        5.726 KB       0 rows
+. . exported "ODB"."CONV_ADV_AC_UNIT_TYPE_SETUP"         5.554 KB       0 rows
+. . exported "ODB"."CONV_ADV_AC_WEIGHT_HISTORY"          6.148 KB       0 rows
+. . exported "ODB"."CONV_ADV_AUTHORIZATION_MASTER"       5.070 KB       0 rows
+. . exported "ODB"."CONV_ADV_DEFECT_PN_REQUIRE"          5.171 KB       0 rows
+. . exported "ODB"."CONV_ADV_DEFECT_REPORT"              7.515 KB       0 rows
+. . exported "ODB"."CONV_ADV_DEFECT_REPORT_CPCP"           6.5 KB       0 rows
+. . exported "ODB"."CONV_ADV_DEFECT_REPORT_TS"           5.773 KB       0 rows
+. . exported "ODB"."CONV_ADV_DEFECT_XREF"                5.273 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENGINEERING_CALLEDONS"      5.453 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENGINEERING_DOCUMENT"           5 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENGINEERING_LINKS"          5.148 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENGINEERING_ORDER"          8.304 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENGINEERING_TC_CTRL"        5.070 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_CONTROL_RANGE"          5.429 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_EFFECTIVITY_AC"         6.164 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_EFFECTIVITY_PN"         5.617 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_EFFECTIVITY_PN_SN"       6.25 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_MISC_ACTIONS"           5.078 KB       0 rows
+. . exported "ODB"."CONV_ADV_ENG_SCHED_OVR"              5.687 KB       0 rows
+. . exported "ODB"."CONV_ADV_FIXED_ASSET"                5.195 KB       0 rows
+. . exported "ODB"."CONV_ADV_HISTORY_KEY_XREF"           5.023 KB       0 rows
+. . exported "ODB"."CONV_ADV_INVOICE_DETAIL"             6.257 KB       0 rows
+. . exported "ODB"."CONV_ADV_INVOICE_HEADER"             6.398 KB       0 rows
+. . exported "ODB"."CONV_ADV_LIBRARY_MANUALS"            5.960 KB       0 rows
+. . exported "ODB"."CONV_ADV_LIBRARY_MASTER"             6.390 KB       0 rows
+. . exported "ODB"."CONV_ADV_LIBR_EFFECTIVITY_AC"        4.929 KB       0 rows
+. . exported "ODB"."CONV_ADV_LIBR_EFFECTIVITY_PN"        4.929 KB       0 rows
+. . exported "ODB"."CONV_ADV_LOCATION_SITE"              5.156 KB       0 rows
+. . exported "ODB"."CONV_ADV_MEL_MASTER"                 6.710 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_EX"            7.039 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_LO"            6.921 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_PO"            6.648 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_RN"            6.195 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_RO"            7.015 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_DETAIL_WC"            6.703 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_EX"            6.109 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_LO"            6.062 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_PO"            6.164 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_RN"            6.187 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_RO"            6.226 KB       0 rows
+. . exported "ODB"."CONV_ADV_ORDER_HEADER_WC"            6.101 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_AC_POSITION"             5.421 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_EFFECTIVITY"             4.929 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_EFF_RANGE"               5.312 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INTERCH_BOTH_WAY"        5.125 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INTERCH_ONE_WAY"         4.937 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INVENTORY_HISTORY"       6.234 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INV_DETAIL_NON_SER"      7.039 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INV_DETAIL_SERIAL"       7.796 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_INV_WARRANTY"            5.687 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_MASTER_MAIN"             8.929 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_POSITION_RANGE"          5.429 KB       0 rows
+. . exported "ODB"."CONV_ADV_PN_VENDOR_INFORMATION"      6.273 KB       0 rows
+. . exported "ODB"."CONV_ADV_REQ_DETAIL"                 5.781 KB       0 rows
+. . exported "ODB"."CONV_ADV_REQ_HEADER"                 5.445 KB       0 rows
+. . exported "ODB"."CONV_ADV_REQ_XREF"                   5.007 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD"                  7.562 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_EFFECTIVITY"      4.984 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_ITEM"             6.351 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_MANUAL"           5.359 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_PANEL"            5.429 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_RESTRICT"         5.070 KB       0 rows
+. . exported "ODB"."CONV_ADV_TASK_CARD_ZONE"             5.445 KB       0 rows
+. . exported "ODB"."CONV_ADV_TC_ALLOWED_LOCATIONS"       5.085 KB       0 rows
+. . exported "ODB"."CONV_ADV_TC_LOCSITE_BAN_CTRL"        5.203 KB       0 rows
+. . exported "ODB"."CONV_ADV_TEAR_DOWN"                   5.75 KB       0 rows
+. . exported "ODB"."CONV_ADV_VENDOR_SPEC2000"            6.242 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO"                         5.812 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO_AC_EC"                   4.921 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO_COMPONENT"                   5 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO_DEFECT_REPORT"           5.132 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO_KEY_XREF"                5.007 KB       0 rows
+. . exported "ODB"."CONV_ADV_WO_PN_INFORMATION"              5 KB       0 rows
+. . exported "ODB"."CONV_ATA_CHAPT_SECT_PARGR"           5.648 KB       0 rows
+. . exported "ODB"."CONV_CONTACT_CONTROL"                6.687 KB       0 rows
+. . exported "ODB"."CONV_CUSTOMER_MASTER"                7.757 KB       0 rows
+. . exported "ODB"."CONV_DATA_VALIDATION"                6.421 KB       0 rows
+. . exported "ODB"."CONV_EMPLOYEE_MASTER"                8.039 KB       0 rows
+. . exported "ODB"."CONV_EMPLOYEE_SKILLS"                5.781 KB       0 rows
+. . exported "ODB"."CONV_ENGINEERING_COMPLIANCE"         6.359 KB       0 rows
+. . exported "ODB"."CONV_ENGINEERING_DOCUMENT"           5.640 KB       0 rows
+. . exported "ODB"."CONV_ENG_EO_TC"                      6.382 KB       0 rows
+. . exported "ODB"."CONV_GL_ACCOUNTS"                    5.210 KB       0 rows
+. . exported "ODB"."CONV_INSTALLED_PARTS"                5.890 KB       0 rows
+. . exported "ODB"."CONV_LIBRARY_EFFECTIVITY"            5.453 KB       0 rows
+. . exported "ODB"."CONV_LIBRARY_MANUAL"                 6.515 KB       0 rows
+. . exported "ODB"."CONV_LIBRARY_TABLE"                  6.562 KB       0 rows
+. . exported "ODB"."CONV_LOCATION_BIN_MASTER"            5.718 KB       0 rows
+. . exported "ODB"."CONV_LOCATION_MASTER"                7.679 KB       0 rows
+. . exported "ODB"."CONV_MEL_MSTR_ITEMS"                 5.453 KB       0 rows
+. . exported "ODB"."CONV_ORDERS_RO"                      5.773 KB       0 rows
+. . exported "ODB"."CONV_PN_AVG_COST"                    5.656 KB       0 rows
+. . exported "ODB"."CONV_PN_CONTROL"                     6.921 KB       0 rows
+. . exported "ODB"."CONV_PN_INVENTORY_CONTROL"           6.312 KB       0 rows
+. . exported "ODB"."CONV_PN_INVENTORY_LEVEL"             5.757 KB       0 rows
+. . exported "ODB"."CONV_PN_LOCATION_BIN_CONTROL"        5.429 KB       0 rows
+. . exported "ODB"."CONV_PN_MASTER"                      5.664 KB       0 rows
+. . exported "ODB"."CONV_PN_NEXT_LOWER_ASSEMBLY"         5.484 KB       0 rows
+. . exported "ODB"."CONV_SKILL_MASTER"                   5.929 KB       0 rows
+. . exported "ODB"."CONV_TASK_CARD_CONTROL_MASTER"       5.976 KB       0 rows
+. . exported "ODB"."CONV_TASK_CARD_PDF"                  4.914 KB       0 rows
+. . exported "ODB"."CONV_TASK_CARD_PN"                   5.609 KB       0 rows
+. . exported "ODB"."CONV_VENDOR_MASTER"                  10.37 KB       0 rows
+. . exported "ODB"."CONV_VISUAL_CHECK_POC_IMP"           5.679 KB       0 rows
+. . exported "ODB"."CORROSION_PROTECTION_DAMAGE"         5.156 KB       0 rows
+. . exported "ODB"."COST_APPROVAL"                       7.273 KB       0 rows
+. . exported "ODB"."COST_APPROVAL_CONFIG"                5.492 KB       0 rows
+. . exported "ODB"."COST_APPROVAL_REVISION"              7.398 KB       0 rows
+. . exported "ODB"."COST_APPROVAL_TRANSACTION"           5.945 KB       0 rows
+. . exported "ODB"."CUSTOMER_ADDBILL_MASTER"             5.734 KB       0 rows
+. . exported "ODB"."CUSTOMER_AUTHORIZATION"              6.523 KB       0 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_SHOP_PN"           5.890 KB       0 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_SHOP_PN_RV"        5.867 KB       0 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_WO"                8.882 KB       0 rows
+. . exported "ODB"."CUSTOMER_CONTRACT_WO_NR"             8.898 KB       0 rows
+. . exported "ODB"."CUSTOMER_EVENT"                      5.132 KB       0 rows
+. . exported "ODB"."CUSTOMER_INVOICE_MAT_TEMP"           6.453 KB       0 rows
+. . exported "ODB"."CUSTOMER_TECHCTL_PN_TYPE"            5.257 KB       0 rows
+. . exported "ODB"."CUSTOMS"                             6.625 KB       0 rows
+. . exported "ODB"."CUSTOMS_ORDER"                       5.632 KB       0 rows
+. . exported "ODB"."CUST_PORTAL_PN_TRANS_COLUMNS"        6.804 KB       0 rows
+. . exported "ODB"."DATA_VALIDATION"                     5.195 KB       0 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_ITEMS"             5.937 KB       0 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_ITEMS_REF"         5.562 KB       0 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_ITEMS_REF_RE"      5.609 KB       0 rows
+. . exported "ODB"."DEFECT_MEL_MASTER_ITEMS_REV"         5.968 KB       0 rows
+. . exported "ODB"."DEFECT_REPORT_DAMAGE_CHART"          7.492 KB       0 rows
+. . exported "ODB"."DEFECT_REPORT_RECOMMEND"             6.101 KB       0 rows
+. . exported "ODB"."DEFECT_REPORT_SEAT_DAMAGE"           5.375 KB       0 rows
+. . exported "ODB"."DEFECT_SEAT"                         5.820 KB       0 rows
+. . exported "ODB"."DEFECT_SEAT_INTERFACE"               5.945 KB       0 rows
+. . exported "ODB"."DEFECT_SITE_CONTROL"                 5.546 KB       0 rows
+. . exported "ODB"."DEFERRAL_AUTHORIZATION"              6.101 KB       0 rows
+. . exported "ODB"."DEF_REPT_DMGE_CHART_MAT_USED"        5.070 KB       0 rows
+. . exported "ODB"."DEICING_TIMES"                       5.531 KB       0 rows
+. . exported "ODB"."DELAY_CANCELLATION"                  6.328 KB       0 rows
+. . exported "ODB"."DENT_MAPPING_FILTERS"                5.867 KB       0 rows
+. . exported "ODB"."DOCUMENT_ANNOTATION"                 5.085 KB       0 rows
+. . exported "ODB"."DOCUMENT_CONTROL_EFFECTIVITY"        5.242 KB       0 rows
+. . exported "ODB"."DOCUMENT_CONTROL_EFF_HEADER"         5.484 KB       0 rows
+. . exported "ODB"."DOCUMENT_CONTROL_MAPPING"            5.171 KB       0 rows
+. . exported "ODB"."DROPDEAD_BY_AC_PROCESS"              4.703 KB       0 rows
+. . exported "ODB"."ECONTENT_SETTINGS"                   5.093 KB       0 rows
+. . exported "ODB"."EMBARCADERO_EXPLAIN_PLAN"            6.773 KB       0 rows
+. . exported "ODB"."EMOBILITY_WEB_SESSION"               6.031 KB       0 rows
+. . exported "ODB"."EMOBILITY_WEB_SESSION_HIST"          6.039 KB       0 rows
+. . exported "ODB"."EMPLOYEE_SCHEDULE_GROUP_ESD"         4.984 KB       0 rows
+. . exported "ODB"."EMPLOYEE_SCHEDULE_GROUP_SELF"        5.078 KB       0 rows
+. . exported "ODB"."EMPLOYEE_TECHNICAL_EXPREIANCE"       6.007 KB       0 rows
+. . exported "ODB"."EMRO_INSTANCES"                      4.960 KB       0 rows
+. . exported "ODB"."EMRO_LOG"                            4.890 KB       0 rows
+. . exported "ODB"."EMRO_SESSIONS"                       4.906 KB       0 rows
+. . exported "ODB"."ENGINEERING_CONTROL_RANGE_W"         5.742 KB       0 rows
+. . exported "ODB"."ENGINEERING_CTL_PN_SW_CONFIG"        5.609 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER"                10.99 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER_ATTACH"         5.609 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER_AUTHORITY"      5.648 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER_METTING"        5.296 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER_PN"             5.679 KB       0 rows
+. . exported "ODB"."ENGINEERING_CUSTOMER_TOOL"           5.593 KB       0 rows
+. . exported "ODB"."ENGINEERING_ECONOMIC_ANALYSIS"         6.5 KB       0 rows
+. . exported "ODB"."ENGINEERING_ECON_ANALYSIS_REV"       6.578 KB       0 rows
+. . exported "ODB"."ENGINEERING_ECON_ANALYSIS_VAR"       5.156 KB       0 rows
+. . exported "ODB"."ENGINEERING_EFFECTIVITY_TRACE"       8.273 KB       0 rows
+. . exported "ODB"."ENGINEERING_NLA_TEMP"                5.968 KB       0 rows
+. . exported "ODB"."ENGINEERING_PLANNING_TEMP"           6.093 KB       0 rows
+. . exported "ODB"."ENGINEERING_PN_TOOL_COSTING"         5.843 KB       0 rows
+. . exported "ODB"."ENGINEERING_PN_TOOL_COSTING_RV"      5.906 KB       0 rows
+. . exported "ODB"."ENGINEERING_VENDOR"                  5.304 KB       0 rows
+. . exported "ODB"."ENGINEERING_VENDOR_RV"               5.421 KB       0 rows
+. . exported "ODB"."ENGINEERING_WARRANTY"                5.867 KB       0 rows
+. . exported "ODB"."ENGINEERING_WARRANTY_RV"             5.953 KB       0 rows
+. . exported "ODB"."ENGINE_INFO_TEMP"                    5.679 KB       0 rows
+. . exported "ODB"."ENGINE_RECORDER"                     6.015 KB       0 rows
+. . exported "ODB"."ENG_COMP_UPLOAD_PARAMETERS"          6.187 KB       0 rows
+. . exported "ODB"."EQUIPMENT_LOCATION"                  5.148 KB       0 rows
+. . exported "ODB"."EQUIPMENT_REF_SW_LOCATION"           5.390 KB       0 rows
+. . exported "ODB"."ETECH_LOGBOOK_CREW"                  5.335 KB       0 rows
+. . exported "ODB"."ETECH_LOGBOOK_SIGN_PDF"              5.226 KB       0 rows
+. . exported "ODB"."ETECH_LOGBOOK_SURVEY_FORM"           7.046 KB       0 rows
+. . exported "ODB"."EXP_AC_ACTUAL_FLIGHTS"               7.609 KB       0 rows
+. . exported "ODB"."EXP_AC_EXPORT"                       5.421 KB       0 rows
+. . exported "ODB"."EXP_AC_MASTER"                       13.66 KB       0 rows
+. . exported "ODB"."EXP_AC_TYPE_SERIES_EXPORT"           5.265 KB       0 rows
+. . exported "ODB"."EXP_CODE_MAPPING"                    5.210 KB       0 rows
+. . exported "ODB"."EXP_DEFECT_REPORT"                   12.13 KB       0 rows
+. . exported "ODB"."EXP_DEFECT_REPORT_PN"                5.945 KB       0 rows
+. . exported "ODB"."EXP_DEFECT_REPORT_TS"                6.664 KB       0 rows
+. . exported "ODB"."EXP_EC_MAPPING"                      5.078 KB       0 rows
+. . exported "ODB"."EXP_ENGINEERING_EFFECTIVITY"         7.070 KB       0 rows
+. . exported "ODB"."EXP_ENGINEERING_ORDER"               10.84 KB       0 rows
+. . exported "ODB"."EXP_ENG_DOCUMENT"                     5.75 KB       0 rows
+. . exported "ODB"."EXP_ENG_LAST_COMPLIANCE"             6.812 KB       0 rows
+. . exported "ODB"."EXP_ENG_SCHEDULE_CONTROL"            5.718 KB       0 rows
+. . exported "ODB"."EXP_PN_CONTROL"                      6.593 KB       0 rows
+. . exported "ODB"."EXP_PN_INTERCHANGEABLE"              4.945 KB       0 rows
+. . exported "ODB"."EXP_PN_INTERCHG_ONE_WAY"             4.945 KB       0 rows
+. . exported "ODB"."EXP_PN_INVENTORY_CONTROL"            6.468 KB       0 rows
+. . exported "ODB"."EXP_PN_INVENTORY_DETAIL"             8.460 KB       0 rows
+. . exported "ODB"."EXP_PN_MASTER"                       5.578 KB       0 rows
+. . exported "ODB"."EXP_PN_NEXT_LOWER_ASSEMBLY"          5.171 KB       0 rows
+. . exported "ODB"."EXP_PN_POSITION_HEADER"              4.945 KB       0 rows
+. . exported "ODB"."EXP_PN_TIME_ADJUSTMENT"              5.789 KB       0 rows
+. . exported "ODB"."EXP_PN_TOTAL_TIMES"                  6.953 KB       0 rows
+. . exported "ODB"."FAULT_CODE_HEADER_EFFECTIVITY"       5.164 KB       0 rows
+. . exported "ODB"."FAULT_CODE_MASTER_DETAIL"            5.859 KB       0 rows
+. . exported "ODB"."FINGERPRINT_MASTER"                  4.843 KB       0 rows
+. . exported "ODB"."FIXED_ASSET_DEPRECIATION"            5.515 KB       0 rows
+. . exported "ODB"."FLIGHTS_EMPLOYEE"                    5.179 KB       0 rows
+. . exported "ODB"."FLIGHT_ASSIGNMENTS"                  5.164 KB       0 rows
+. . exported "ODB"."FLIGHT_SCHEDULE_ASSIGNMENT"          6.523 KB       0 rows
+. . exported "ODB"."FLIGHT_SEAT_ASSIGNMENT"              5.375 KB       0 rows
+. . exported "ODB"."FOLLOW_UP_REQUIREMENTS"              6.171 KB       0 rows
+. . exported "ODB"."FOLLOW_UP_REQUIREMENTS_PRE"          5.414 KB       0 rows
+. . exported "ODB"."FORMULAS"                            5.218 KB       0 rows
+. . exported "ODB"."FORM_MASTER"                         5.617 KB       0 rows
+. . exported "ODB"."FORM_RESPONSE_HEADER"                5.179 KB       0 rows
+. . exported "ODB"."GATE_ZONES"                          5.117 KB       0 rows
+. . exported "ODB"."GL_BUDGET_MASTER"                    5.898 KB       0 rows
+. . exported "ODB"."GROUND_EVENT_RESPONSE"               5.976 KB       0 rows
+. . exported "ODB"."GROUP_ASSIGN"                        5.125 KB       0 rows
+. . exported "ODB"."GROUP_ASSIGN_FLIGHT"                 4.843 KB       0 rows
+. . exported "ODB"."GROUP_EMPLOYEE"                      5.039 KB       0 rows
+. . exported "ODB"."GROUP_SHIFT_SCHEDULE_TMPLT"          6.507 KB       0 rows
+. . exported "ODB"."GSE_MASTER_CHECK_IN_OUT"             5.664 KB       0 rows
+. . exported "ODB"."GSE_PN_POSITION_DISTRIBUTION"         5.75 KB       0 rows
+. . exported "ODB"."GSE_PN_POSITION_DISTRTION_HD"        5.734 KB       0 rows
+. . exported "ODB"."GSE_PN_POSITION_HEADER"              5.851 KB       0 rows
+. . exported "ODB"."GSE_READING"                         5.796 KB       0 rows
+. . exported "ODB"."IFACE_EMP_SCHED_SAB"                 5.273 KB       0 rows
+. . exported "ODB"."IFACE_MAT_REQ_V1"                    6.132 KB       0 rows
+. . exported "ODB"."IFACE_SHIFT_GROUP_SAB"               4.703 KB       0 rows
+. . exported "ODB"."IFACE_SPEC2K_G2_IN_QT"               7.843 KB       0 rows
+. . exported "ODB"."IFACE_SPEC2K_G2_OUT_QT"              7.843 KB       0 rows
+. . exported "ODB"."IMPORT_ACTUAL_FLIGHTS"               6.046 KB       0 rows
+. . exported "ODB"."IMPORT_AC_MASTER"                    8.476 KB       0 rows
+. . exported "ODB"."IMPORT_AC_PN_TRANSACTION_HIST"       7.039 KB       0 rows
+. . exported "ODB"."IMPORT_ATA_CHAP_SEC_PAR"             5.718 KB       0 rows
+. . exported "ODB"."IMPORT_CONTACT_CONTROL"              6.695 KB       0 rows
+. . exported "ODB"."IMPORT_CUSTOMER_MASTER"              7.781 KB       0 rows
+. . exported "ODB"."IMPORT_DEFECT_REPORT"                8.234 KB       0 rows
+. . exported "ODB"."IMPORT_EMPLOYEE_MASTER"              7.804 KB       0 rows
+. . exported "ODB"."IMPORT_ENGINEERING_COMPLIANCE"       6.539 KB       0 rows
+. . exported "ODB"."IMPORT_ENGINEERING_DOCUMENT"         5.203 KB       0 rows
+. . exported "ODB"."IMPORT_ENGINEERING_ORDER"            11.66 KB       0 rows
+. . exported "ODB"."IMPORT_LIBRARY_EFFECTIVITY"          5.406 KB       0 rows
+. . exported "ODB"."IMPORT_LIBRARY_MANUAL"               6.656 KB       0 rows
+. . exported "ODB"."IMPORT_LIBRARY_TABLE"                6.632 KB       0 rows
+. . exported "ODB"."IMPORT_LOCATION_BIN_MASTER"          5.679 KB       0 rows
+. . exported "ODB"."IMPORT_LOCATION_MASTER"              8.156 KB       0 rows
+. . exported "ODB"."IMPORT_PN_CONTROL"                   6.953 KB       0 rows
+. . exported "ODB"."IMPORT_PN_INVENTORY_CONTROL"         6.710 KB       0 rows
+. . exported "ODB"."IMPORT_PN_INVENTORY_LEVEL"           5.726 KB       0 rows
+. . exported "ODB"."IMPORT_PN_LOCATION_BIN_CONTROL"      5.320 KB       0 rows
+. . exported "ODB"."IMPORT_PN_NEXT_LOWER_ASSEMBLY"       5.257 KB       0 rows
+. . exported "ODB"."IMPORT_VENDOR_MASTER"                9.781 KB       0 rows
+. . exported "ODB"."INTELLI_FORM_EFF"                    5.281 KB       0 rows
+. . exported "ODB"."INTERCHANGEABLES_VIEW"               4.796 KB       0 rows
+. . exported "ODB"."INTERFACE_ACTUAL_FLIGHTS"            6.421 KB       0 rows
+. . exported "ODB"."INTERFACE_AC_IN_OUT_SRV_DETAIL"      5.898 KB       0 rows
+. . exported "ODB"."INTERFACE_AC_IN_OUT_SRV_HEADER"      5.781 KB       0 rows
+. . exported "ODB"."INTERFACE_APU_READING"               5.921 KB       0 rows
+. . exported "ODB"."INTERFACE_COMPLETION_COMPONENT"      6.687 KB       0 rows
+. . exported "ODB"."INTERFACE_DEFECT_MEL_MASTER"         5.812 KB       0 rows
+. . exported "ODB"."INTERFACE_DEFECT_REPORT"             8.476 KB       0 rows
+. . exported "ODB"."INTERFACE_DEFECT_TROUBLESHOOT"       6.242 KB       0 rows
+. . exported "ODB"."INTERFACE_EMPLOYEE_MASTER"           8.070 KB       0 rows
+. . exported "ODB"."INTERFACE_FLIGHT_SCHEDULE"           5.546 KB       0 rows
+. . exported "ODB"."INTERFACE_INVOICE_EXCEPTION"         5.375 KB       0 rows
+. . exported "ODB"."INTERFACE_INVOICE_LINE"              6.023 KB       0 rows
+. . exported "ODB"."INTERFACE_INVOICE_MESSAGE"           7.898 KB       0 rows
+. . exported "ODB"."INTERFACE_JOBS_CONFIG"               5.585 KB       0 rows
+. . exported "ODB"."INTERFACE_MAPPING"                   5.421 KB       0 rows
+. . exported "ODB"."INTERFACE_MCM_QUEUE"                 6.351 KB       0 rows
+. . exported "ODB"."INTERFACE_MESSAGE_LOAD"              5.367 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_COMPLETION"          5.601 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_HEADER"              4.992 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_HEADER_SENT"         4.937 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_INVOICE"             5.984 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_INVOICE_HEADER"      5.929 KB       0 rows
+. . exported "ODB"."INTERFACE_ORDER_LOCK"                5.140 KB       0 rows
+. . exported "ODB"."INTERFACE_PACK_SHIP"                 6.984 KB       0 rows
+. . exported "ODB"."INTERFACE_PACK_SHIP_HEADER"          4.945 KB       0 rows
+. . exported "ODB"."INTERFACE_PLANNING"                  9.265 KB       0 rows
+. . exported "ODB"."INTERFACE_PN_INVENTORY_HISTORY"      5.070 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_ADDRESS"              6.132 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_CONTACT"              6.148 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_DOCUMENT"             5.281 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_MESSAGE_HEADER"       5.882 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_ORDER_DETAIL"         7.820 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_ORDER_HEADER"         5.867 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_PN"                   5.914 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_PN_HISTORY"           5.843 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_QUOTE_CHARGE"         5.695 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_QUOTE_DETAIL"         7.242 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_QUOTE_HEADER"          5.75 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_QUOTE_TAX"            5.914 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_RECEIPT"              5.367 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_SHIPMENT_DETAIL"      6.882 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_SHIPMENT_HEADER"          6 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_STATUS_DETAIL"        6.492 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_STATUS_HEADER"        6.242 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_TRACEABILITY"         5.796 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_WARRANTY"             5.687 KB       0 rows
+. . exported "ODB"."INTERFACE_SPEC_WARRANTY_TIME"        5.351 KB       0 rows
+. . exported "ODB"."INTERFACE_VENDOR_MASTER"             9.875 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICJC"                5.531 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICMAT"               5.218 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICMS"                5.515 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICTOOL"               5.25 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICWO"                5.242 KB       0 rows
+. . exported "ODB"."INTERFACE_WICS_WICWOM"               5.445 KB       0 rows
+. . exported "ODB"."INTERFACE_WO_ACTUALS"                5.828 KB       0 rows
+. . exported "ODB"."INVENTORY_BALANCE_PERIODS"           5.234 KB       0 rows
+. . exported "ODB"."IOS_PRINTING_JOBS_QT"                9.109 KB      31 rows
+. . exported "ODB"."IR"                                  6.601 KB       0 rows
+. . exported "ODB"."IR_FOLLOW_UP"                        6.023 KB       0 rows
+. . exported "ODB"."JASPER_REPORT_FORMS"                 5.351 KB       0 rows
+. . exported "ODB"."JOURNAL_ENTRIES_EXP_PN_CAT"          5.710 KB       0 rows
+. . exported "ODB"."JOURNAL_ENTRIES_PARAM"                7.25 KB       0 rows
+. . exported "ODB"."LHT_MATERIALS_MESSAGE_REF"           5.007 KB       0 rows
+. . exported "ODB"."LHT_MATERIAL_REQUEST_REF"            4.945 KB       0 rows
+. . exported "ODB"."LHT_MEMO_DOCUMENT"                   4.710 KB       0 rows
+. . exported "ODB"."LHT_SHOP_FINDINGS"                   5.562 KB       0 rows
+. . exported "ODB"."LIBRARY_LEVEL"                       5.203 KB       0 rows
+. . exported "ODB"."LIBRARY_MANUALS"                     6.609 KB       0 rows
+. . exported "ODB"."LIBRARY_MANUAL_AUTH"                 5.734 KB       0 rows
+. . exported "ODB"."LIBRARY_MANUAL_CATEGORY_AUTH"        5.742 KB       0 rows
+. . exported "ODB"."LIBRARY_REVISION_AUTH"               6.046 KB       0 rows
+. . exported "ODB"."LIBRARY_REVISION_DISPATCH"           5.890 KB       0 rows
+. . exported "ODB"."LIBRARY_REVISION_HEADER"             6.171 KB       0 rows
+. . exported "ODB"."LIBRARY_REVISION_REQUEST"            8.007 KB       0 rows
+. . exported "ODB"."LIBRARY_REV_REQUEST_AUTH_STEP"       5.992 KB       0 rows
+. . exported "ODB"."LIBRARY_REV_REQUEST_AUTH_UPD"        6.265 KB       0 rows
+. . exported "ODB"."LIBRARY_TABLE"                       6.664 KB       0 rows
+. . exported "ODB"."LIBRARY_TABLE_EFFECTIVITY"           5.421 KB       0 rows
+. . exported "ODB"."LOCATION_CAPACITY_BOARD"             5.710 KB       0 rows
+. . exported "ODB"."LOCATION_CAPACITY_BOARD_PN"          5.914 KB       0 rows
+. . exported "ODB"."LOCATION_CLASS"                      5.320 KB       0 rows
+. . exported "ODB"."LOCATION_MASTER_HOLIDAYS"            5.429 KB       0 rows
+. . exported "ODB"."LOCATION_RFID"                       5.187 KB       0 rows
+. . exported "ODB"."LOCATION_RFID_USERS"                 4.835 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_ASSIGNED_LINK"         5.460 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_CAPACITY"              6.710 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_CONFIGURATIONS"        5.742 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_EMPLOYEE_HOUR"         5.781 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_EMPLOYEE_SHIFT"        6.187 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_HEADCOUNT"             5.585 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_INACTIVE_SCH"          5.781 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_PENDING"               6.171 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_RESERVED"              6.203 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_SCHEDULE"              5.679 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_SCHL_TMPLT"            12.67 KB       0 rows
+. . exported "ODB"."LOCATION_SITE_SELF_ASSIG"            6.164 KB       0 rows
+. . exported "ODB"."LSAP_PART_STATUS"                    5.039 KB       0 rows
+. . exported "ODB"."MASTER_PN_FIELD_VISIBLE"             6.054 KB       0 rows
+. . exported "ODB"."MEMO_DOCUMENT"                       5.718 KB       0 rows
+. . exported "ODB"."MOBILE_PREFERENCES"                  5.179 KB       0 rows
+. . exported "ODB"."MPD_TEMP"                            5.617 KB       0 rows
+. . exported "ODB"."NOTES_INTERFACE"                         5 KB       0 rows
+. . exported "ODB"."NOTE_PAD_ACKNOWLEDGE"                5.023 KB       0 rows
+. . exported "ODB"."NOTE_PAD_ARCHIVE"                    5.421 KB       0 rows
+. . exported "ODB"."NOTE_PAD_MESSAGE_ARCHIVE"            5.421 KB       0 rows
+. . exported "ODB"."NR_CUSTOMER_MATERIALS_REVISION_HISTORY"  5.789 KB       0 rows
+. . exported "ODB"."NR_CUSTOMER_REVISION_HISTORY"        6.617 KB       0 rows
+. . exported "ODB"."NR_ENGINEERING"                      5.812 KB       0 rows
+. . exported "ODB"."NR_FIELD_VISIBLE"                    7.296 KB       0 rows
+. . exported "ODB"."ORDER_AUTHORIZATION"                 5.343 KB       0 rows
+. . exported "ODB"."ORDER_COMPLETION"                    5.617 KB       0 rows
+. . exported "ODB"."ORDER_PN_CAPABILITY_AUTHORITY"       5.375 KB       0 rows
+. . exported "ODB"."ORDER_RECEIVING_DISCREPANCY_EO"      5.289 KB       0 rows
+. . exported "ODB"."ORDER_TEMP"                          4.921 KB       0 rows
+. . exported "ODB"."PBCATVLD"                            4.960 KB       0 rows
+. . exported "ODB"."PBH_DETAIL"                          6.242 KB       0 rows
+. . exported "ODB"."PBH_MASTER"                          7.062 KB       0 rows
+. . exported "ODB"."PBH_MASTER_HEADER"                   6.179 KB       0 rows
+. . exported "ODB"."PBH_MASTER_OVERRIDE"                 5.656 KB       0 rows
+. . exported "ODB"."PHASE_TEMPLATE_DETAIL_LINK"          5.132 KB       0 rows
+. . exported "ODB"."PHASE_TEMPLATE_DETAIL_SHOP"          6.171 KB       0 rows
+. . exported "ODB"."PHASE_TEMPLATE_HEADER_SHOP"          5.429 KB       0 rows
+. . exported "ODB"."PICKLIST_DISTRIBUTION_REC"           6.625 KB       0 rows
+. . exported "ODB"."PICKLIST_DISTRIBUTION_REC_AUD"       6.679 KB       0 rows
+. . exported "ODB"."PICKLIST_FIELD_VISIBLE"              6.820 KB       0 rows
+. . exported "ODB"."PLANNING_FILTER_STATE"               5.046 KB       0 rows
+. . exported "ODB"."PLANNING_JOBS_QUE"                   5.054 KB       0 rows
+. . exported "ODB"."PLANNING_LABOR_SIMULATION"           6.062 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_AC_AGING_BUFFER"       5.742 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_AC_EFF"                5.367 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_BUFFERS"               5.351 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_DOCKLINE_PRMS"         6.140 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_DOCK_RULE_REF"         4.851 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_DRIVERS"               6.382 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_EVENTS"                5.687 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_EVENTS_REFF"           4.851 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_LOCATION"              5.398 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_LOC_SITES_EFF"         5.171 KB       0 rows
+. . exported "ODB"."PLANNING_LTRM_MSG"                   5.921 KB       0 rows
+. . exported "ODB"."PLANNING_MANHOUR_TEMP"               5.039 KB       0 rows
+. . exported "ODB"."PN_BALANCE_COSTING_RECONCILE"        5.546 KB       0 rows
+. . exported "ODB"."PN_CATALOG_FOR_INQUIRY"              6.453 KB       0 rows
+. . exported "ODB"."PN_CATALOG_FOR_SALE"                 7.453 KB       0 rows
+. . exported "ODB"."PN_CHEMICAL_COMPONENT"               5.812 KB       0 rows
+. . exported "ODB"."PN_CONTROL_AUTHORIZATION_STEP"       5.804 KB       0 rows
+. . exported "ODB"."PN_CONTROL_SCHEDULE_OVERRIDE"        6.375 KB       0 rows
+. . exported "ODB"."PN_EXP_FORECAST"                     5.218 KB       0 rows
+. . exported "ODB"."PN_FINANCIAL_CLOSING_TEMP"           5.671 KB       0 rows
+. . exported "ODB"."PN_INITIAL_LOAD_IFACE"               9.859 KB       0 rows
+. . exported "ODB"."PN_INITIAL_LOAD_PARAMETERS"          9.906 KB       0 rows
+. . exported "ODB"."PN_INTCHG_COND_EO"                   5.117 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_CONTROL_PRORATED"       6.101 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_CONTROL_TEMPLATE"       5.203 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_DETAIL_LOOP"             5.25 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_EXPIRY_PARMS"           5.101 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_HISTORY_VIEW"            6.25 KB       0 rows
+. . exported "ODB"."PN_INVENTORY_NLA_LEVELS"             5.109 KB       0 rows
+. . exported "ODB"."PN_MANUAL_XREF"                      5.390 KB       0 rows
+. . exported "ODB"."PN_MASTER_ALERT_FLEET_FAMILY"        5.406 KB       0 rows
+. . exported "ODB"."PN_MASTER_AVERAGE"                   5.234 KB       0 rows
+. . exported "ODB"."PN_MASTER_IFACE"                         9 KB       0 rows
+. . exported "ODB"."PN_MASTER_INTERFACE"                 7.085 KB       0 rows
+. . exported "ODB"."PN_MASTER_VIEW"                      6.234 KB       0 rows
+. . exported "ODB"."PN_POSITION_HEADER_AU"               5.921 KB       0 rows
+. . exported "ODB"."PN_POSITION_RESTRICTIONS"            5.507 KB       0 rows
+. . exported "ODB"."PN_POSITION_RESTRICTION_EFF"         5.273 KB       0 rows
+. . exported "ODB"."PN_POSITION_RESTRICTION_EFF_HD"      5.203 KB       0 rows
+. . exported "ODB"."PN_SELL"                             5.867 KB       0 rows
+. . exported "ODB"."PN_SOFTWARE"                         5.515 KB       0 rows
+. . exported "ODB"."PN_SOFTWARE_AC_CONFIG"               5.484 KB       0 rows
+. . exported "ODB"."PN_SW_CONF_AUTHORIZATION_STEP"       5.906 KB       0 rows
+. . exported "ODB"."PN_VENDOR_PRICE_AUTORD"              5.695 KB       0 rows
+. . exported "ODB"."PN_VENDOR_PRICE_CAPABILITY"          6.390 KB       0 rows
+. . exported "ODB"."PN_VENDOR_PRICE_CAPABILITY_ADT"      6.429 KB       0 rows
+. . exported "ODB"."PN_VENDOR_PRICE_CAP_TRAINING"        5.742 KB       0 rows
+. . exported "ODB"."PN_VISUAL_CHECK"                     5.039 KB       0 rows
+. . exported "ODB"."PO_DETAIL_VIEW"                      5.664 KB       0 rows
+. . exported "ODB"."PO_HEADER_VIEW"                      6.164 KB       0 rows
+. . exported "ODB"."PRE_RECEIVING_ORDERS_BY_VENDOR"      5.335 KB       0 rows
+. . exported "ODB"."PRINT_BARCODE"                       6.062 KB       0 rows
+. . exported "ODB"."PRINT_PARAMS_SCHEDULE"                   5 KB       0 rows
+. . exported "ODB"."PROFILE_BANK_INFORMATION"            5.835 KB       0 rows
+. . exported "ODB"."PROJECT_TEAM_DETAIL"                 5.921 KB       0 rows
+. . exported "ODB"."PROJECT_TEAM_HEADER"                 5.078 KB       0 rows
+. . exported "ODB"."REQUISITION_DETAIL_REC"              7.257 KB       0 rows
+. . exported "ODB"."REQUISITION_FIELD_VISIBLE"           7.914 KB       0 rows
+. . exported "ODB"."REQUISITION_FILTER"                  5.984 KB       0 rows
+. . exported "ODB"."REQUISITION_TEMP"                    4.835 KB       0 rows
+. . exported "ODB"."REQUISITION_VIEW"                    5.703 KB       0 rows
+. . exported "ODB"."RFID_SCANNER_INPUT"                    5.5 KB       0 rows
+. . exported "ODB"."ROUTE_MASTER"                         5.75 KB       0 rows
+. . exported "ODB"."SDR"                                 6.578 KB       0 rows
+. . exported "ODB"."SECURITY_LOCATION"                   5.304 KB       0 rows
+. . exported "ODB"."SHIPPED_GOODS"                       6.109 KB       0 rows
+. . exported "ODB"."SHOP_CONTROL_CONFIGS"                4.992 KB       0 rows
+. . exported "ODB"."SHOP_CONTROL_NR_FILTER"              6.062 KB       0 rows
+. . exported "ODB"."SHOP_CONTROL_TC_FILTER"              6.007 KB       0 rows
+. . exported "ODB"."SKILL_MASTER_CURRENCY"               5.515 KB       0 rows
+. . exported "ODB"."SPEC2500_CODE_MASTER"                5.210 KB       0 rows
+. . exported "ODB"."SPEC2500_EXCEPTIONS"                 5.562 KB       0 rows
+. . exported "ODB"."SPEC2500_EXP_IMP"                    5.734 KB       0 rows
+. . exported "ODB"."SPEC2500_EXP_IMP_ASSET"              6.265 KB       0 rows
+. . exported "ODB"."SPEC2500_EXP_IMP_MAPPING"            5.359 KB       0 rows
+. . exported "ODB"."SPEC2500_STATIC_MAPPING"             5.078 KB       0 rows
+. . exported "ODB"."SUB_LOCATION"                        5.156 KB       0 rows
+. . exported "ODB"."SURPLUS_SALES"                       6.773 KB       0 rows
+. . exported "ODB"."SURVEY_DETAIL"                       6.531 KB       0 rows
+. . exported "ODB"."SVG_DEMAND_DETAIL"                   5.257 KB       0 rows
+. . exported "ODB"."SVG_EVENT"                           4.992 KB       0 rows
+. . exported "ODB"."SVG_EVENT_COVERAGE"                  5.210 KB       0 rows
+. . exported "ODB"."SVG_EVENT_PRODUCT"                   4.984 KB       0 rows
+. . exported "ODB"."SVG_EVENT_PRODUCT_BOM"               5.398 KB       0 rows
+. . exported "ODB"."SVG_EVENT_SCHEDULE"                  5.070 KB       0 rows
+. . exported "ODB"."SVG_LOCATIONS"                       4.828 KB       0 rows
+. . exported "ODB"."SVG_ORDERPLAN"                       5.593 KB       0 rows
+. . exported "ODB"."SVG_PART_CHAIN"                      4.992 KB       0 rows
+. . exported "ODB"."SVG_PART_CHAIN_DETAILS"              5.421 KB       0 rows
+. . exported "ODB"."SVG_PART_MASTER"                     6.132 KB       0 rows
+. . exported "ODB"."SVG_PART_REPAIR_OPTIONS"             5.335 KB       0 rows
+. . exported "ODB"."SVG_PART_SUBSTITUTION"               4.992 KB       0 rows
+. . exported "ODB"."SVG_PRODUCT"                         5.070 KB       0 rows
+. . exported "ODB"."SVG_PRODUCT_BOM"                     5.218 KB       0 rows
+. . exported "ODB"."SVG_SALESORDER"                      5.132 KB       0 rows
+. . exported "ODB"."SVG_STOCK_AMOUNT"                    5.203 KB       0 rows
+. . exported "ODB"."SVG_VENDOR_LOCATIONS"                    5 KB       0 rows
+. . exported "ODB"."SVG_WASH_RATE"                       4.843 KB       0 rows
+. . exported "ODB"."SV_MASTER"                           5.882 KB       0 rows
+. . exported "ODB"."SYSTEM_FIELD_LEVEL_ACCESS"           5.078 KB       0 rows
+. . exported "ODB"."SYSTEM_TRAN_CONFIG_A"                6.492 KB       0 rows
+. . exported "ODB"."SYS_TRAN_CODE_MAPPING"               5.148 KB       0 rows
+. . exported "ODB"."TASK_CARD_AC_MOD_PLANS"              5.132 KB       0 rows
+. . exported "ODB"."TASK_CARD_CONFLICTS"                 5.125 KB       0 rows
+. . exported "ODB"."TASK_CARD_CONTROL_EXCLUSION"         5.718 KB       0 rows
+. . exported "ODB"."TASK_CARD_CONTROL_EXCLUSION_RV"      5.765 KB       0 rows
+. . exported "ODB"."TASK_CARD_EXECUTION"                 5.367 KB       0 rows
+. . exported "ODB"."TASK_CARD_FIELD_VISIBLE"             7.226 KB       0 rows
+. . exported "ODB"."TASK_CARD_GRAPHICS"                  5.171 KB       0 rows
+. . exported "ODB"."TASK_CARD_INSPECTOR_ASSIGNED"        5.351 KB       0 rows
+. . exported "ODB"."TASK_CARD_ITEM_DISTRI_EFF_HD"        5.242 KB       0 rows
+. . exported "ODB"."TASK_CARD_ITEM_DISTRI_EF_RV_HD"      5.257 KB       0 rows
+. . exported "ODB"."TASK_CARD_ITEM_STATUS"               5.343 KB       0 rows
+. . exported "ODB"."TASK_CARD_KEYWORD"                   5.140 KB       0 rows
+. . exported "ODB"."TASK_CARD_KEYWORD_RV"                5.226 KB       0 rows
+. . exported "ODB"."TASK_CARD_KEYWORD_TEMP"              4.859 KB       0 rows
+. . exported "ODB"."TASK_CARD_REFERENCE"                 6.195 KB       0 rows
+. . exported "ODB"."TASK_CARD_REFERENCE_IMAGE"           5.359 KB       0 rows
+. . exported "ODB"."TASK_CARD_REFERENCE_IMAGE_XREF"      5.273 KB       0 rows
+. . exported "ODB"."TASK_CARD_REF_REV_CONTROL"           5.429 KB       0 rows
+. . exported "ODB"."TASK_CARD_REV_AC_MOD_PLANS"          5.218 KB       0 rows
+. . exported "ODB"."TASK_PRIORITY_CONFIG"                5.554 KB       0 rows
+. . exported "ODB"."TEMP_EFF_MISMATCH"                       6 KB       0 rows
+. . exported "ODB"."TEMP_INVENTORY_TRANSACTION"          5.375 KB       0 rows
+. . exported "ODB"."TEMP_IPC_IMPORT_RANGES"              5.687 KB       0 rows
+. . exported "ODB"."TEMP_PN_ASEMBLY_INTER"               4.968 KB       0 rows
+. . exported "ODB"."TEMP_PN_ASEMBLY_TREE"                5.281 KB       0 rows
+. . exported "ODB"."TEMP_PN_EFFECTIVITY_DIST"            5.515 KB       0 rows
+. . exported "ODB"."TEMP_PN_EFFECTIVITY_HEADER"          5.648 KB       0 rows
+. . exported "ODB"."TEMP_TASK_CARD_IT_DIS_EF_RV"         5.507 KB       0 rows
+. . exported "ODB"."TEMP_TASK_CARD_IT_HE_EF_RV"          5.742 KB       0 rows
+. . exported "ODB"."TEMP_TASK_ITEM_LOOP"                 4.984 KB       0 rows
+. . exported "ODB"."TEMP_WO_EO_TASKCARD_PRINT"           6.570 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_ASSEMBLY"                 4.906 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_DELETE_EC"                4.703 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_EC_CALLED_ON"             4.929 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_EMPLOYEE_SKILL"           5.132 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_PN_CONTROL"               5.765 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_PN_TEAR_DOWN"             5.546 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_PN_VENDOR_PRICE"          6.492 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_WO"                       5.554 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_WO_EC"                    5.109 KB       0 rows
+. . exported "ODB"."TMP_CNV_HA_WO_TASK_CARD"             6.226 KB       0 rows
+. . exported "ODB"."TMP_CNV_PO_CREATION"                 4.796 KB       0 rows
+. . exported "ODB"."TRAINER_CONTROL"                     5.843 KB       0 rows
+. . exported "ODB"."TRAINING_MASTER_ATA"                 5.687 KB       0 rows
+. . exported "ODB"."TRAINING_MASTER_CONTROL"             5.703 KB       0 rows
+. . exported "ODB"."TRAINING_MASTER_SKILL"               5.695 KB       0 rows
+. . exported "ODB"."TRAINING_SCHOOL_ATA"                 5.546 KB       0 rows
+. . exported "ODB"."TRAINING_SCHOOL_SCHEDULE"            5.945 KB       0 rows
+. . exported "ODB"."TRAINING_SCHOOL_TRAINER"             5.421 KB       0 rows
+. . exported "ODB"."TRAXDOC_AUTHORIZATION_STEP"          5.992 KB       0 rows
+. . exported "ODB"."TRAXDOC_CAUTIONS_WARNINGS"           5.296 KB       0 rows
+. . exported "ODB"."TRAXDOC_CONVERSION_EXCEPTIONS"       4.937 KB       0 rows
+. . exported "ODB"."TRAXDOC_DETAIL_REV"                  6.820 KB       0 rows
+. . exported "ODB"."TRAXDOC_EC_CHECK"                    5.242 KB       0 rows
+. . exported "ODB"."TRAXDOC_EFFECTIVITY_HEADER_RV"       5.648 KB       0 rows
+. . exported "ODB"."TRAXDOC_EFFECTIVITY_RV"              5.343 KB       0 rows
+. . exported "ODB"."TRAXDOC_ENTITIES"                    5.320 KB       0 rows
+. . exported "ODB"."TRAXDOC_ENTITIES_WEB"                4.734 KB       0 rows
+. . exported "ODB"."TRAXDOC_EXCEPTIONS_HEADER"           5.648 KB       0 rows
+. . exported "ODB"."TRAXDOC_FAVORITES"                   5.414 KB       0 rows
+. . exported "ODB"."TRAXDOC_LINKS"                       5.789 KB       0 rows
+. . exported "ODB"."TRAXDOC_LINKS_REV"                   5.851 KB       0 rows
+. . exported "ODB"."TRAXDOC_LINK_CONTENT"                5.601 KB       0 rows
+. . exported "ODB"."TRAXDOC_LINK_TRAXDOC"                5.070 KB       0 rows
+. . exported "ODB"."TRAXDOC_MANUAL_LINKS"                5.148 KB       0 rows
+. . exported "ODB"."TRAXDOC_MPT_LOAD"                    5.179 KB       0 rows
+. . exported "ODB"."TRAXDOC_PKG_IMPORT"                  4.960 KB       0 rows
+. . exported "ODB"."TRAXDOC_REV"                         8.046 KB       0 rows
+. . exported "ODB"."TRAXDOC_SCHEMA_CHANGES"              6.117 KB       0 rows
+. . exported "ODB"."TRAXDOC_TR"                          6.156 KB       0 rows
+. . exported "ODB"."TRAXDOC_TR_DETAIL"                   6.687 KB       0 rows
+. . exported "ODB"."TRAXDOC_TR_PAGE"                     5.585 KB       0 rows
+. . exported "ODB"."TRAX_CONVERSION_DATAELEMENTS"        5.585 KB       0 rows
+. . exported "ODB"."TRAX_CONVERSION_DATAPROGRAMS"        5.148 KB       0 rows
+. . exported "ODB"."TRAX_CONVERSION_FILES"               5.765 KB       0 rows
+. . exported "ODB"."TRAX_CONVERSION_TABLES"              5.421 KB       0 rows
+. . exported "ODB"."TRAX_CONVERSION_WINDOW"              6.351 KB       0 rows
+. . exported "ODB"."TRAX_DATAWINDOWS_UPD"                5.648 KB       0 rows
+. . exported "ODB"."TRAX_DICTIONARY_EXCEPTIONS"          5.234 KB       0 rows
+. . exported "ODB"."TRAX_DIS"                            5.726 KB       0 rows
+. . exported "ODB"."TRAX_DISCREPANCY_REPORT"             11.72 KB       0 rows
+. . exported "ODB"."TRAX_DISCREPANCY_REPORT_DETAIL"      5.437 KB       0 rows
+. . exported "ODB"."TRAX_DISCREPANCY_REPORT_HIST"        10.48 KB       0 rows
+. . exported "ODB"."TRAX_INV"                            5.390 KB       0 rows
+. . exported "ODB"."TRAX_MDT"                            6.679 KB       0 rows
+. . exported "ODB"."TRAX_MHT"                            5.554 KB       0 rows
+. . exported "ODB"."TRAY_MASTER"                         5.523 KB       0 rows
+. . exported "ODB"."TXD_ACCESS_PANELS"                   5.507 KB       0 rows
+. . exported "ODB"."TXD_AC_BREAKDOWN"                    5.679 KB       0 rows
+. . exported "ODB"."TXD_AC_BREAKDOWN_REFS"               5.148 KB       0 rows
+. . exported "ODB"."TXD_APPLICABILITIES"                 5.773 KB       0 rows
+. . exported "ODB"."TXD_CBS"                             6.031 KB       0 rows
+. . exported "ODB"."TXD_CONTAINER_REFS"                  5.609 KB       0 rows
+. . exported "ODB"."TXD_DM_ILLUSTRATIONS"                5.507 KB       0 rows
+. . exported "ODB"."TXD_DM_ILLUSTRATION_GRAPHICS"        5.601 KB       0 rows
+. . exported "ODB"."TXD_FINS"                            5.859 KB       0 rows
+. . exported "ODB"."TXD_IPD_FIGURE"                      5.648 KB       0 rows
+. . exported "ODB"."TXD_IPD_FIGURE_FINREFS"              5.195 KB       0 rows
+. . exported "ODB"."TXD_IPD_ILLUSTRATION"                5.515 KB       0 rows
+. . exported "ODB"."TXD_IPD_ILLUSTRATION_GRAPHIC"        5.601 KB       0 rows
+. . exported "ODB"."TXD_IPD_ITEM"                        5.632 KB       0 rows
+. . exported "ODB"."TXD_IPD_ITEM_PART"                   6.265 KB       0 rows
+. . exported "ODB"."TXD_ITEM_FINREFS"                    5.289 KB       0 rows
+. . exported "ODB"."TXD_PARTS"                           6.148 KB       0 rows
+. . exported "ODB"."TXD_PART_REFS"                       5.414 KB       0 rows
+. . exported "ODB"."TXD_PMC_DMC"                         5.796 KB       0 rows
+. . exported "ODB"."TXD_PRCDRL_STEP_INTERNAL_REFS"       5.484 KB       0 rows
+. . exported "ODB"."TXD_PRCDRL_STEP_SAFETY_RQMTS"        5.320 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURAL_STEP"                 6.132 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURAL_STEP_LABOR"           5.234 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURES"                      6.703 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_ILLUSTRATIONS"         5.484 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_ILLUST_GRAPHICS"       5.593 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_LABOR"                 5.601 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_LOCATIONS"             5.507 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_MULTIMEDIAS"           5.507 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_PN_RQMT"               5.835 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_REFS"                  5.523 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_RFU"                   5.351 KB       0 rows
+. . exported "ODB"."TXD_PROCEDURE_SAFETY_RQMTS"          5.234 KB       0 rows
+. . exported "ODB"."TXD_SAFETY_SPECS"                    5.445 KB       0 rows
+. . exported "ODB"."TXD_VENDORS"                         5.851 KB       0 rows
+. . exported "ODB"."TXD_ZONES"                           5.757 KB       0 rows
+. . exported "ODB"."USER_COMMUNICATION"                  5.515 KB       0 rows
+. . exported "ODB"."USER_WEB_FILES"                      5.398 KB       0 rows
+. . exported "ODB"."VENDOR_CONTRACT"                     6.843 KB       0 rows
+. . exported "ODB"."VENDOR_CONTRACT_DETAIL"              8.578 KB       0 rows
+. . exported "ODB"."VENDOR_CONTRACT_FLEET"               5.187 KB       0 rows
+. . exported "ODB"."VENDOR_CONTRACT_TASK"                5.578 KB       0 rows
+. . exported "ODB"."VENDOR_RATINGS"                      5.156 KB       0 rows
+. . exported "ODB"."VISUAL_SCAN_HISTORY_DETAIL"          5.468 KB       0 rows
+. . exported "ODB"."VISUAL_SCAN_HISTORY_HEADER"          5.195 KB       0 rows
+. . exported "ODB"."VTRAX"                               6.117 KB       0 rows
+. . exported "ODB"."WINDOW_PRINTING_JOBS_QT"             7.492 KB       0 rows
+Master table "SYS"."ODB_SCHEMA_EXP_03042026" successfully loaded/unloaded
+******************************************************************************
+Dump file set for SYS.ODB_SCHEMA_EXP_03042026 is:
+  /u99/dmps/migdir/expdp_traxuat_03042026_01.dmp
+Job "SYS"."ODB_SCHEMA_EXP_03042026" successfully completed at Wed Mar 4 01:40:01 2026 elapsed 0 00:06:45

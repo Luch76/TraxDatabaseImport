@@ -1,0 +1,14 @@
+
+set echo on
+
+-- The below line is just to drop the link.
+DROP DATABASE LINK "TRAXDOC_LINK";
+
+CREATE DATABASE LINK "TRAXDOC_LINK"  CONNECT TO "ODB" 
+    IDENTIFIED BY ODB
+    USING 'FREEPDB1' 
+;
+
+SELECT COUNT(*) FROM USER_TABLES@TRAXDOC_LINK;
+
+
