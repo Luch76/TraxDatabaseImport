@@ -28,3 +28,8 @@ docker exec -u root -it \
 	-e FILE_DMP_ZIP="$FILE_DMP_ZIP" \
 	-e ORACLE_CONNECT_STRING="$DB_CONNECT" \
 	"$CONTAINER_NAME" bash "$FOLDER_DMP"/imp02.sh
+
+# Delete the unzipped dmp files
+docker exec -u root -it "$CONTAINER_NAME" bash -c "rm -rf $FOLDER_DMP/*.dmp"
+
+

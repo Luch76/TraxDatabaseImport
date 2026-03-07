@@ -3,25 +3,23 @@ SET SERVEROUTPUT ON
 
 BEGIN
   FOR r IN (
-    SELECT owner, table_name, constraint_name
-    FROM dba_constraints
-    WHERE owner = 'ODB'
-      AND constraint_type = 'R'
+    SELECT table_name, constraint_name
+    FROM user_constraints
+    WHERE constraint_type = 'R'
       AND status = 'ENABLED'
   ) LOOP
     EXECUTE IMMEDIATE
-      'ALTER TABLE "' || r.owner || '"."' || r.table_name ||
+      'ALTER TABLE "' || r.table_name ||
       '" DISABLE CONSTRAINT "' || r.constraint_name || '"';
   END LOOP;
 
   FOR t IN (
-    SELECT owner, trigger_name
-    FROM dba_triggers
-    WHERE owner = 'ODB'
-      AND status = 'ENABLED'
+    SELECT trigger_name
+    FROM user_triggers
+    WHERE status = 'ENABLED'
   ) LOOP
     EXECUTE IMMEDIATE
-      'ALTER TRIGGER "' || t.owner || '"."' || t.trigger_name || '" DISABLE';
+      'ALTER TRIGGER "' || t.trigger_name || '" DISABLE';
   END LOOP;
 END;
 /

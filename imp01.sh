@@ -11,6 +11,7 @@ fi
 : "${SCHEMA_OWNER:?SCHEMA_OWNER is required}"
 DB_CONNECT="${ORACLE_CONNECT_STRING:-system/traxlocal@FREEPDB1}"
 SYS_CONNECT="${ORACLE_SYS_CONNECT:-sys/traxlocal@FREEPDB1 as sysdba}"
+SCHEMA_CONNECT="${ORACLE_SCHEMA_CONNECT:-$SCHEMA_OWNER/$SCHEMA_OWNER@FREEPDB1}"
 
 run_impdp_allow_warnings() {
 	set +e
@@ -44,8 +45,17 @@ chmod 644 "$DMP_FILE"
 # Step 0: create target users/directories before import (run as SYS).
 sqlplus -s "$SYS_CONNECT" <<EOF
 WHENEVER SQLERROR EXIT SQL.SQLCODE
-DEFINE TRAX_SCHEMA=$SCHEMA_OWNER
+DEFINE SCHEMA_OWNER=$SCHEMA_OWNER
 @"/opt/oracle/dmp/100 - Create User.sql"
+@"/opt/oracle/dmp/125 - Grant as SYS.sql"
+EXIT
+EOF
+
+# Step 0b: connect as schema owner and run schema-level link script.
+sqlplus -s "$SCHEMA_CONNECT" <<EOF
+WHENEVER SQLERROR EXIT SQL.SQLCODE
+DEFINE SCHEMA_OWNER=$SCHEMA_OWNER
+@"/opt/oracle/dmp/175 - traxdoc link.sql"
 EXIT
 EOF
 

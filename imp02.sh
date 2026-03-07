@@ -7,7 +7,14 @@ if [ -f /opt/oracle/dmp/env.ini ]; then
 	source /opt/oracle/dmp/env.ini
 fi
 
-DB_CONNECT="${ORACLE_CONNECT_STRING:-system/traxlocal@FREEPDB1}"
+SYSTEM_CONNECT="${ORACLE_CONNECT_STRING:-system/traxlocal@FREEPDB1}"
+: "${SCHEMA_OWNER:?SCHEMA_OWNER is required}"
+SCHEMA_CONNECT="${ORACLE_SCHEMA_CONNECT:-$SCHEMA_OWNER/$SCHEMA_OWNER@FREEPDB1}"
+
+if [[ ! "$SYSTEM_CONNECT" =~ ^[sS][yY][sS][tT][eE][m]/ ]]; then
+	echo "ORACLE_CONNECT_STRING must use SYSTEM user (example: system/password@service)"
+	exit 1
+fi
 
 run_impdp_allow_warnings() {
 	set +e
@@ -39,12 +46,12 @@ fi
 chmod 644 "$DMP_FILE"
 
 # Disable FK constraints and triggers before data load.
-sqlplus -s "$DB_CONNECT" @disable-fk-triggers.sql
+sqlplus -s "$SCHEMA_CONNECT" @disable-fk-triggers.sql
 
 # Import data only.
-run_impdp_allow_warnings impdp "$DB_CONNECT" parfile=imp-data.ini
+run_impdp_allow_warnings impdp "$SYSTEM_CONNECT" parfile=imp-data.ini
 
 # Re-enable FK constraints and triggers after data load.
-sqlplus -s "$DB_CONNECT" @enable-fk-triggers.sql
+sqlplus -s "$SCHEMA_CONNECT" @enable-fk-triggers.sql
 
 echo "Data import completed successfully"

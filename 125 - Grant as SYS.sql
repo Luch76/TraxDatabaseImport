@@ -1,6 +1,6 @@
 -- This SQL must be run as the SYS user.
 -- It is safe to re-run.
-DEFINE ODB=&TRAX_SCHEMA
+DEFINE ODB=&SCHEMA_OWNER
 set echo on
 show user;
 
@@ -27,8 +27,8 @@ GRANT "JAVAIDPRIV" TO "&ODB";
 GRANT "JAVASYSPRIV" TO "&ODB";
 GRANT "JAVAUSERPRIV" TO "&ODB";
 GRANT "JAVA_ADMIN" TO "&ODB";
-GRANT "JAVA_DEPLOY" TO "&ODB";
-exec dbms_java.grant_permission('&ODB', 'SYS:java.util.PropertyPermission', 'javax.xml.transform.TransformerFactory', 'write' );
+-- GRANT "JAVA_DEPLOY" TO "&ODB";
+-- exec dbms_java.grant_permission('&ODB', 'SYS:java.util.PropertyPermission', 'javax.xml.transform.TransformerFactory', 'write' );
 GRANT SELECT ON  "SYS"."DBA_RGROUP" TO "&ODB";
 GRANT SELECT ON  "SYS"."ALL_DB_LINKS" TO "&ODB";
 GRANT SELECT ON  "SYS"."ALL_DIRECTORIES" TO "&ODB";
@@ -46,12 +46,7 @@ grant select on v_$mystat TO "&ODB";
 --2011-06-21
 GRANT EXECUTE ON  "SYS"."DBMS_CRYPTO" TO "&ODB";
 
--- Drop and Create the MATERIALIZED VIEW  ac_actual_flights_view - should not be under SYS
-drop MATERIALIZED VIEW  "SYS"."AC_ACTUAL_FLIGHTS_VIEW";
-drop table "SYS"."AC_ACTUAL_FLIGHTS_VIEW";
 
-drop materialized view log on "SYS"."AC_ACTUAL_FLIGHTS";
---CREATE MATERIALIZED VIEW LOG ON "SYS"."AC_ACTUAL_FLIGHTS" WITH ROWID;
 
 
 -- 2009 03-23
@@ -202,53 +197,6 @@ end;
 END;
 /
 
-DECLARE 
-I_TABLES NUMBER(2,0);
-
-
-
-
-BEGIN
-
-SELECT COUNT (*)
-INTO I_TABLES
-FROM "SYS"."ALL_TABLES" 
-WHERE "OWNER" = 'TRAXCORP' AND
-      "TABLE_NAME" IN ('TRAX_CUSTOMER_RELEASE', 'TRAX_DISCREPANCY_CUST_SUP_SCPT','TRAX_DISCREPANCY_EMAIL_HISTORY', 
-                       'TRAX_DISCREPANCY_RELEASES', 'TRAX_DISCREPENCY_TESTING_SCRIP', 'TRAX_CUSTOMER_RELEASE_AUDIT');
-
-
-IF I_TABLES = 0 THEN
-
-DELETE
-FROM "&ODB"."MAIN"
-WHERE "&ODB"."MAIN"."TRANSACTION" = 2 AND
-      "&ODB"."MAIN"."CATEGORY" IN ( 'DETAIL', 'SUBDETAIL') AND
-      "&ODB"."MAIN"."CATEGORY_TITLE" IN ('Trax Customer Release', 'Trax Discrepancy - All', 'Trax Discrepancy - Reviewed', 'Trax Discrepancy - Testing', 
-       					'Trax Discrepancy Print', 'Trax Discrepancy Report', 'Trax Assignment', 'Trax Assignment IT Department',
-				        'Trax Testing Log Manager','Trax Accounting', 'Trax Conversion Tracking Print', 'Trax Conversion Tracking', 'Trax Employee Daily Status',
-                          		'Trax Documentation', 'Customer Support Dashboard', 'Trax Conversion Dataelements','CS Manager',
-                          		'Last Modified PBL Report') OR
-      "&ODB"."MAIN"."CATEGORY_TITLE" LIKE '%Fax Coversheet%';
-
-DELETE
-FROM "&ODB"."SECURITY_DETAIL" 
-WHERE "&ODB"."SECURITY_DETAIL"."TRANSACTION" = 2 AND
-      "&ODB"."SECURITY_DETAIL"."CATEGORY_TITLE" in ('Trax discrepancy print','Trax Customer Release','Trax Discrepancy - All', 
-      						   'Trax Assignment', 'Trax Discrepancy Print', 'TRAX Discrepancy Report', 'Trax Discrepancy Invoice Report',
-						   'Trax Discrepancy Testing Audit', 'Customer status report all', 'Customer status report',
-						   'Trax Testing Log Manager', 'Trax Discrepancy Report Testing Button', 'Trax Accounting', 
-						   'Trax Conversion Tracking Print', 'Trax Conversion Tracking', 'Trax Employee Daily Status',
-                          			   'Trax Documentation', 'Customer Support Dashboard', 'Trax Conversion Dataelements','CS Manager',
-                          			   'Last Modified PBL Report') OR
-      "&ODB"."SECURITY_DETAIL"."CATEGORY_TITLE" LIKE '%Fax Coversheet%';
-
-COMMIT;
-
-END IF;
-
-END;
-/
 
 declare     
     i_checkDB number;
@@ -308,5 +256,5 @@ GRANT EXECUTE ON "SYS"."TRAX_SYS" TO "&ODB";
 GRANT EXECUTE     ON  "SYS"."DBMS_LOCK" TO  "&ODB";
 Grant select any table to "&ODB";
 grant select on v_$sqltext to "&ODB";
-grant select on V$SQLAREA to "&ODB";
+-- grant select on V$SQLAREA to "&ODB";
 
