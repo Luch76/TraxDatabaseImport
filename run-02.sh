@@ -22,11 +22,13 @@ docker cp imp-data.ini "$CONTAINER_NAME":"$FOLDER_DMP"/
 docker cp env.ini "$CONTAINER_NAME":"$FOLDER_DMP"/
 docker cp disable-fk-triggers.sql "$CONTAINER_NAME":"$FOLDER_DMP"/
 docker cp enable-fk-triggers.sql "$CONTAINER_NAME":"$FOLDER_DMP"/
+docker cp "300 - Shrink UndoTablespace.sql" "$CONTAINER_NAME":"$FOLDER_DMP"/
 
 # Run phase 2 (data import) inside the existing container
 docker exec -u root -it \
 	-e FILE_DMP_ZIP="$FILE_DMP_ZIP" \
 	-e ORACLE_CONNECT_STRING="$DB_CONNECT" \
+	-e ORACLE_SYS_CONNECT="${DB_SYS_CONNECT:-}" \
 	"$CONTAINER_NAME" bash "$FOLDER_DMP"/imp02.sh
 
 # Delete the unzipped dmp files
