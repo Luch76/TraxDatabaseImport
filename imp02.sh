@@ -23,6 +23,12 @@ if [[ ! "$SYS_CONNECT" =~ ^[sS][yY][sS]/ ]]; then
 	exit 1
 fi
 
+# env.ini may contain a host path (for example alaska/file.zip). Inside the
+# container, the archive is copied under /opt/oracle/dmp using its basename.
+if [ -n "${FILE_DMP_ZIP:-}" ] && [ ! -f "$FILE_DMP_ZIP" ] && [ -f "/opt/oracle/dmp/$(basename "$FILE_DMP_ZIP")" ]; then
+	FILE_DMP_ZIP="$(basename "$FILE_DMP_ZIP")"
+fi
+
 run_impdp_allow_warnings() {
 	set +e
 	"$@"
@@ -44,13 +50,23 @@ if [ -n "${FILE_DMP_ZIP:-}" ] && [[ "$FILE_DMP_ZIP" == *.gz ]] && [ -f "$FILE_DM
 	gunzip -f "$FILE_DMP_ZIP"
 fi
 
-DMP_FILE="${FILE_DMP_ZIP%.gz}"
-if [ ! -f "$DMP_FILE" ]; then
-	echo "Required dump file '$DMP_FILE' not found in /opt/oracle/dmp"
-	exit 1
+if [ -n "${FILE_DMP_ZIP:-}" ] && [[ "$FILE_DMP_ZIP" == *.zip ]] && [ -f "$FILE_DMP_ZIP" ]; then
+	unzip -o "$FILE_DMP_ZIP"
 fi
 
-chmod 644 "$DMP_FILE"
+DMP_FILE="${FILE_DMP_ZIP%.gz}"
+if [ -n "${FILE_DMP_ZIP:-}" ] && [[ "$FILE_DMP_ZIP" == *.zip ]]; then
+	DMP_FILE=""
+fi
+if [ -f "$DMP_FILE" ]; then
+	chmod 644 "$DMP_FILE"
+elif ls -1 *.dmp >/dev/null 2>&1; then
+	chmod 644 ./*.dmp
+	echo "Archive '${FILE_DMP_ZIP:-<unset>}' not found; using existing extracted .dmp files"
+else
+	echo "Required dump archive '$DMP_FILE' not found in /opt/oracle/dmp and no .dmp files are available"
+	exit 1
+fi
 
 # Disable FK constraints and triggers before data load.
 sqlplus -s "$SCHEMA_CONNECT" @disable-fk-triggers.sql

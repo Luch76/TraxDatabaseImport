@@ -13,6 +13,12 @@ DB_CONNECT="${ORACLE_CONNECT_STRING:-system/traxlocal@FREEPDB1}"
 SYS_CONNECT="${ORACLE_SYS_CONNECT:-sys/traxlocal@FREEPDB1 as sysdba}"
 SCHEMA_CONNECT="${ORACLE_SCHEMA_CONNECT:-$SCHEMA_OWNER/$SCHEMA_OWNER@FREEPDB1}"
 
+# env.ini may contain a host path (for example alaska/file.zip). Inside the
+# container, the archive is copied under /opt/oracle/dmp using its basename.
+if [ ! -f "$FILE_DMP_ZIP" ] && [ -f "/opt/oracle/dmp/$(basename "$FILE_DMP_ZIP")" ]; then
+	FILE_DMP_ZIP="$(basename "$FILE_DMP_ZIP")"
+fi
+
 run_impdp_allow_warnings() {
 	set +e
 	"$@"
@@ -35,12 +41,27 @@ if [[ "$FILE_DMP_ZIP" == *.gz ]] && [ -f "$FILE_DMP_ZIP" ]; then
 	gunzip -f "$FILE_DMP_ZIP"
 fi
 
+# Extract dump files if a zip archive is provided.
+if [[ "$FILE_DMP_ZIP" == *.zip ]] && [ -f "$FILE_DMP_ZIP" ]; then
+	unzip -o "$FILE_DMP_ZIP"
+fi
+
 echo "All files unzipped successfully"
 
 DMP_FILE="${FILE_DMP_ZIP%.gz}"
 
+if [[ "$FILE_DMP_ZIP" == *.zip ]]; then
+	DMP_FILE=""
+fi
+
 # Set read permissions on the unzipped files
-chmod 644 "$DMP_FILE"
+if [ -n "$DMP_FILE" ] && [ -f "$DMP_FILE" ]; then
+	chmod 644 "$DMP_FILE"
+fi
+
+if ls -1 *.dmp >/dev/null 2>&1; then
+	chmod 644 ./*.dmp
+fi
 
 # Step 0: create target users/directories before import (run as SYS).
 sqlplus -s "$SYS_CONNECT" <<EOF
