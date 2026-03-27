@@ -12,8 +12,11 @@ Alaska
 @'/Users/luch/Downloads/2026-03-07 - TASK_CARD v11.sql'
 ;
 
+Email is: host.docker.internal or 10.211.55.2
+;
+
 UPDATE TRAX_GLOBAL_FILES TGF
-SET TGF."SMTP_SERVER_ADDRESS" = '10.211.55.2'
+SET TGF."SMTP_SERVER_ADDRESS" = 'host.docker.internal'
 WHERE 1=1
 ;
 commit;
