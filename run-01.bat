@@ -57,36 +57,31 @@ docker cp "175 - traxdoc link.sql" %CONTAINER_NAME%:%FOLDER_DMP%/
 REM Wait until Oracle service FREEPDB1 is reachable before running import steps
 echo Waiting for Oracle service to become ready...
 set "MAX_WAIT_SECONDS=300"
-
-for /f "tokens=1-4 delims=/:.," %%a in ('wmic os get LocalDateTime ^| findstr [0-9]') do (
-    set "START_TIME=%%a%%b%%c%%d"
-)
+set "SLEEP_SECONDS=3"
+set /a "MAX_ATTEMPTS=MAX_WAIT_SECONDS/SLEEP_SECONDS"
+if !MAX_ATTEMPTS! lss 1 set "MAX_ATTEMPTS=1"
+set "ATTEMPT=0"
 
 :wait_loop
-docker exec "%CONTAINER_NAME%" bash -lc "echo 'exit' | sqlplus -L -s '!DB_CONNECT!' >nul 2>&1"
+docker exec "%CONTAINER_NAME%" bash -lc "echo 'exit' | sqlplus -L -s '!DB_CONNECT!' >/dev/null 2>&1"
 if %errorlevel% equ 0 (
     echo Oracle is ready.
     goto oracle_ready
 )
 
-REM Calculate elapsed time
-for /f "tokens=1-4 delims=/:.," %%a in ('wmic os get LocalDateTime ^| findstr [0-9]') do (
-    set "NOW=%%a%%b%%c%%d"
-)
-
-REM Simple time comparison (this is a limitation of batch - may need adjustment for complex timing)
-if %NOW% geq %START_TIME% (
-    set /a ELAPSED=NOW-START_TIME
-    if !ELAPSED! geq %MAX_WAIT_SECONDS% (
-        echo Timed out waiting for Oracle service after %MAX_WAIT_SECONDS%s
-        exit /b 1
-    )
+set /a ATTEMPT+=1
+if !ATTEMPT! geq !MAX_ATTEMPTS! (
+    echo Timed out waiting for Oracle service after %MAX_WAIT_SECONDS%s
+    exit /b 1
 )
 
 timeout /t 3 /nobreak
 goto wait_loop
 
 :oracle_ready
+REM Convert to LF in the container in case this file was copied with CRLF from Windows.
+docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/imp01.sh"
+
 REM Run phase 1 script inside the container as root user
 docker exec -u root -it ^
     -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" ^
