@@ -48,13 +48,13 @@ while true; do
 done
 
 # Run phase 2 (data import) inside the existing container
-docker exec -u root -it \
+docker exec -u root \
 	-e FILE_DMP_ZIP="$DMP_ZIP_CONTAINER_NAME" \
 	-e ORACLE_CONNECT_STRING="$DB_CONNECT" \
 	-e ORACLE_SYS_CONNECT="${DB_SYS_CONNECT:-}" \
 	"$CONTAINER_NAME" bash "$FOLDER_DMP"/imp02.sh
 
 # Delete the unzipped dmp files
-docker exec -u root -it "$CONTAINER_NAME" bash -c "rm -rf $FOLDER_DMP/*.dmp"
+docker exec -u root "$CONTAINER_NAME" bash -c "rm -rf $FOLDER_DMP/*.dmp"
 
 

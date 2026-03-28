@@ -45,6 +45,17 @@ run_impdp_allow_warnings() {
 	fi
 }
 
+run_sqlplus_script() {
+	connect_string="$1"
+	script_path="$2"
+	sqlplus -L -s "$connect_string" <<SQL
+WHENEVER OSERROR EXIT FAILURE
+WHENEVER SQLERROR EXIT SQL.SQLCODE
+@"$script_path"
+EXIT
+SQL
+}
+
 cd /opt/oracle/dmp
 
 # Make sure dump file exists for phase 2 import.
@@ -71,15 +82,15 @@ else
 fi
 
 # Disable FK constraints and triggers before data load.
-sqlplus -s "$SCHEMA_CONNECT" @disable-fk-triggers.sql
+run_sqlplus_script "$SCHEMA_CONNECT" "disable-fk-triggers.sql"
 
 # Import data only.
 run_impdp_allow_warnings impdp "$SYSTEM_CONNECT" parfile=imp-data.ini
 
 # Re-enable FK constraints and triggers after data load.
-sqlplus -s "$SCHEMA_CONNECT" @enable-fk-triggers.sql
+run_sqlplus_script "$SCHEMA_CONNECT" "enable-fk-triggers.sql"
 
 # Run post-import maintenance as SYS.
-sqlplus -s "$SYS_CONNECT" @"300 - Shrink UndoTablespace.sql"
+run_sqlplus_script "$SYS_CONNECT" "300 - Shrink UndoTablespace.sql"
 
 echo "Data import completed successfully"

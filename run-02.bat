@@ -78,7 +78,7 @@ docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/i
 docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/env.ini"
 
 REM Run phase 2 (data import) inside the existing container
-docker exec -u root -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" -e ORACLE_CONNECT_STRING="!DB_CONNECT!" "!CONTAINER_NAME!" bash "!FOLDER_DMP!/imp02.sh"
+docker exec -u root -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" -e ORACLE_CONNECT_STRING="!DB_CONNECT!" -e ORACLE_SYS_CONNECT="!DB_SYS_CONNECT!" "!CONTAINER_NAME!" bash "!FOLDER_DMP!/imp02.sh"
 
 REM Delete the unzipped dmp files
 docker exec -u root "!CONTAINER_NAME!" bash -c "rm -rf !FOLDER_DMP!/*.dmp"
