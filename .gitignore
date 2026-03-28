@@ -3,4 +3,4 @@
 *.gz
 .DS_Store
 .log
-
+/DMP/*
