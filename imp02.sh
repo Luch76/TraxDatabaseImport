@@ -4,6 +4,8 @@ set -euo pipefail
 
 # Load optional environment values copied from host.
 if [ -f /opt/oracle/dmp/env.ini ]; then
+	# Windows copies can preserve CRLF; normalize before sourcing.
+	sed -i 's/\r$//' /opt/oracle/dmp/env.ini
 	source /opt/oracle/dmp/env.ini
 fi
 

@@ -1,4 +1,5 @@
 *.zip
+*.dmp
 *.gz
 .DS_Store
 .log

@@ -10,6 +10,30 @@ for /f "tokens=1,* delims==" %%A in (env.ini) do (
     if "%%A"=="SCHEMA_OWNER" set "SCHEMA_OWNER=%%B"
 )
 
+REM Normalize optional quotes in env.ini values.
+set "DB_CONNECT=%DB_CONNECT:"=%"
+
+if not defined CONTAINER_NAME (
+    echo Missing required setting CONTAINER_NAME in env.ini
+    exit /b 1
+)
+if not defined FILE_DMP_ZIP (
+    echo Missing required setting FILE_DMP_ZIP in env.ini
+    exit /b 1
+)
+if not defined PORT (
+    echo Missing required setting PORT in env.ini
+    exit /b 1
+)
+if not defined DB_CONNECT (
+    echo Missing required setting DB_CONNECT in env.ini
+    exit /b 1
+)
+if not defined SCHEMA_OWNER (
+    echo Missing required setting SCHEMA_OWNER in env.ini
+    exit /b 1
+)
+
 set "FOLDER_DMP=/opt/oracle/dmp"
 
 REM Support FILE_DMP_ZIP as either relative (alaska\file.zip) or full path
@@ -30,9 +54,10 @@ REM Get just the filename (basename) of the zip file
 for %%F in ("!DMP_ZIP_HOST_PATH!") do set "DMP_ZIP_CONTAINER_NAME=%%~nxF"
 
 REM Drop existing container if it exists
-for /f "tokens=*" %%A in ('docker ps -aq -f name=%CONTAINER_NAME%') do (
-    echo Container %CONTAINER_NAME% already exists. Removing it...
-    docker rm -f %CONTAINER_NAME%
+docker ps -a --format "{{.Names}}" | findstr /R "^!CONTAINER_NAME!$" >nul 2>&1
+if not errorlevel 1 (
+    echo Container !CONTAINER_NAME! already exists. Removing it...
+    docker rm -f "!CONTAINER_NAME!"
 )
 
 REM Create the database container for phase 1 (structure import)
@@ -81,15 +106,16 @@ goto wait_loop
 :oracle_ready
 REM Convert to LF in the container in case this file was copied with CRLF from Windows.
 docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/imp01.sh"
+docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/env.ini"
 
 REM Run phase 1 script inside the container as root user
-docker exec -u root -it ^
+docker exec -u root ^
     -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" ^
     %CONTAINER_NAME% bash %FOLDER_DMP%/imp01.sh
 
 REM Cleanup: for gzip inputs, remove archive after extraction and keep .dmp files
 if "!DMP_ZIP_CONTAINER_NAME:~-3!"==".gz" (
-    docker exec -u root -it "%CONTAINER_NAME%" rm -f "%FOLDER_DMP%/!DMP_ZIP_CONTAINER_NAME!"
+    docker exec -u root "%CONTAINER_NAME%" rm -f "%FOLDER_DMP%/!DMP_ZIP_CONTAINER_NAME!"
 )
 
 endlocal

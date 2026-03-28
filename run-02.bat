@@ -9,13 +9,30 @@ for /f "tokens=1,* delims==" %%A in (env.ini) do (
     if "%%A"=="DB_SYS_CONNECT" set "DB_SYS_CONNECT=%%B"
 )
 
+REM Normalize optional quotes in env.ini values.
+set "DB_CONNECT=%DB_CONNECT:"=%"
+set "DB_SYS_CONNECT=%DB_SYS_CONNECT:"=%"
+
+if not defined CONTAINER_NAME (
+    echo Missing required setting CONTAINER_NAME in env.ini
+    exit /b 1
+)
+if not defined FILE_DMP_ZIP (
+    echo Missing required setting FILE_DMP_ZIP in env.ini
+    exit /b 1
+)
+if not defined DB_CONNECT (
+    echo Missing required setting DB_CONNECT in env.ini
+    exit /b 1
+)
+
 set "FOLDER_DMP=/opt/oracle/dmp"
 
 REM Match the filename inside /opt/oracle/dmp where run-01 copied the zip
 for %%F in ("!FILE_DMP_ZIP!") do set "DMP_ZIP_CONTAINER_NAME=%%~nxF"
 
 REM Ensure the phase-1 container exists and is running
-docker ps -a --format "{{.Names}}" | findstr /R "^%CONTAINER_NAME%$" >nul 2>&1
+docker inspect "%CONTAINER_NAME%" >nul 2>&1
 if errorlevel 1 (
     echo Container '%CONTAINER_NAME%' not found. Run run-01.bat first.
     exit /b 1
@@ -58,16 +75,13 @@ goto wait_loop
 :oracle_ready
 REM Convert to LF in the container in case this file was copied with CRLF from Windows.
 docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/imp02.sh"
+docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/env.ini"
 
 REM Run phase 2 (data import) inside the existing container
-docker exec -u root -it ^
-    -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" ^
-    -e ORACLE_CONNECT_STRING="!DB_CONNECT!" ^
-    -e ORACLE_SYS_CONNECT="!DB_SYS_CONNECT!" ^
-    "%CONTAINER_NAME%" bash "%FOLDER_DMP%/imp02.sh"
+docker exec -u root -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" -e ORACLE_CONNECT_STRING="!DB_CONNECT!" "!CONTAINER_NAME!" bash "!FOLDER_DMP!/imp02.sh"
 
 REM Delete the unzipped dmp files
-docker exec -u root -it "%CONTAINER_NAME%" bash -c "rm -rf %FOLDER_DMP%/*.dmp"
+docker exec -u root "!CONTAINER_NAME!" bash -c "rm -rf !FOLDER_DMP!/*.dmp"
 
 endlocal
 
