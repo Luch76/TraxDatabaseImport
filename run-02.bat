@@ -75,13 +75,32 @@ goto wait_loop
 :oracle_ready
 REM Convert to LF in the container in case this file was copied with CRLF from Windows.
 docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/imp02.sh"
+if errorlevel 1 (
+    echo Failed to normalize imp02.sh line endings inside container.
+    exit /b 1
+)
 docker exec -u root "%CONTAINER_NAME%" bash -lc "sed -i 's/\r$//' %FOLDER_DMP%/env.ini"
+if errorlevel 1 (
+    echo Failed to normalize env.ini line endings inside container.
+    exit /b 1
+)
 
-REM Run phase 2 (data import) inside the existing container
-docker exec -u root -e FILE_DMP_ZIP="!DMP_ZIP_CONTAINER_NAME!" -e ORACLE_CONNECT_STRING="!DB_CONNECT!" -e ORACLE_SYS_CONNECT="!DB_SYS_CONNECT!" "!CONTAINER_NAME!" bash "!FOLDER_DMP!/imp02.sh"
+REM Run phase 2 (data import) inside the existing container.
+REM imp02.sh sources env.ini in the container, so avoid passing credentials
+REM through docker exec where cmd.exe quoting is fragile.
+docker exec -u root "%CONTAINER_NAME%" bash "%FOLDER_DMP%/imp02.sh"
+set "PHASE2_RC=%ERRORLEVEL%"
+if not "%PHASE2_RC%"=="0" (
+    echo Phase 2 import failed with exit code %PHASE2_RC%.
+    exit /b %PHASE2_RC%
+)
 
 REM Delete the unzipped dmp files
 docker exec -u root "!CONTAINER_NAME!" bash -c "rm -rf !FOLDER_DMP!/*.dmp"
+if errorlevel 1 (
+    echo Failed to clean up extracted .dmp files.
+    exit /b 1
+)
 
 endlocal
 

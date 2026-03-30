@@ -9,11 +9,11 @@ if [ -f /opt/oracle/dmp/env.ini ]; then
 	source /opt/oracle/dmp/env.ini
 fi
 
-SYSTEM_CONNECT="${ORACLE_CONNECT_STRING:-system/traxlocal@FREEPDB1}"
+SYSTEM_CONNECT="${ORACLE_CONNECT_STRING:-${DB_CONNECT:-system/traxlocal@FREEPDB1}}"
 : "${SCHEMA_OWNER:?SCHEMA_OWNER is required}"
 SCHEMA_CONNECT="${ORACLE_SCHEMA_CONNECT:-$SCHEMA_OWNER/$SCHEMA_OWNER@FREEPDB1}"
 DEFAULT_SYS_CONNECT="$(echo "$SYSTEM_CONNECT" | sed -E 's/^[sS][yY][sS][tT][eE][m]/sys/') as sysdba"
-SYS_CONNECT="${ORACLE_SYS_CONNECT:-$DEFAULT_SYS_CONNECT}"
+SYS_CONNECT="${ORACLE_SYS_CONNECT:-${DB_SYS_CONNECT:-$DEFAULT_SYS_CONNECT}}"
 
 if [[ ! "$SYSTEM_CONNECT" =~ ^[sS][yY][sS][tT][eE][m]/ ]]; then
 	echo "ORACLE_CONNECT_STRING must use SYSTEM user (example: system/password@service)"
