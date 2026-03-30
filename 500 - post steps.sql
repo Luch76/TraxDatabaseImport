@@ -3,7 +3,7 @@
 
 Hawaii: 
 Load Task cards: 
-@'/Users/luch/Warez/TraxDatabaseImport/hawaii/2026-03-04 - HA TC.sql';
+@'/Users/luch/Warez/TraxDatabaseImport/DMP/2026-03-07 - TASK_CARD v11.sql/2026-03-07 - TASK_CARD v11.sql';
 (TC data was not loaded because TC_XML field being too large)
 ;
 
